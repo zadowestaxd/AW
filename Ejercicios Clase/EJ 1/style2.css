@@ -1,0 +1,45 @@
+
+body {
+    --structure-margin: 5px;
+    margin: 0;
+    padding: 0;
+    box-sizing:content-box;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto 10%;
+    gap: 5px;
+}
+
+.estructura {
+    width: 100%;
+    height: 100%;
+}
+
+.titulo {
+    background-color: aqua;
+}
+
+.contenido {
+    
+}
+
+.pie-de-pagina {
+    background-color: black;
+    
+}
+
+.centro-grande {
+    background-color: yellow;
+    width: 70%;
+    float: right;
+    
+}
+
+.centro-peque {
+    background-color: maroon;
+    width: 29.7%;
+   float: left;
+
+}
