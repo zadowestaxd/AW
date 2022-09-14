@@ -1,4 +1,3 @@
-
 body {
     --structure-margin: 5px;
     margin: 0;
@@ -10,7 +9,6 @@ body {
     grid-template-columns: 100%;
     grid-template-rows: 20% auto 10%;
     gap: 5px;
-    
 }
 
 .estructura {
@@ -20,21 +18,21 @@ body {
 
 .titulo {
     background-color: aqua;
-    color: darkblue;
-    border-style: solid;
+    border-color: darkblue;
+    border-style: solid ;
 }
 
 .contenido {
     background-color: yellow;
+    color: darkgoldenrod;
     width: 80%;
     margin-left: 50%;
     transform: translateX(-50%);
-    color: darkgoldenrod;
-    border-style: solid;
+    border-style: solid ;
 }
 
 .pie-de-pagina {
     background-color: green;
     color: darkgreen;
-    border-style: solid;
+    border-style: solid ;
 }
