@@ -1,0 +1,50 @@
+body {
+    --structure-margin: 5px;
+    margin: 0;
+    padding: 0;
+    box-sizing:content-box;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto 10%;
+    gap: 5px;
+}
+
+.estructura1 {
+    width: 100%;
+    height: 100%;
+}
+
+.titulo1 {
+    background-color: aqua;
+    border-color: darkblue;
+    border-collapse: inherit;
+    border-style: solid ;
+}
+
+.pie-de-pagina1 {
+    background-color: green;
+    color: darkgreen;
+    /*border-style: solid ;*/
+}
+
+#contenedor1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+  }
+  #principal1 {
+    
+    background-color: orange;
+    border-color: darkorange;
+    width: 25%;
+  }
+  #sidebar1 {
+    
+    background-color: purple;
+    width: 75%;
+    
+  }
