@@ -1,0 +1,40 @@
+
+body {
+    --structure-margin: 5px;
+    margin: 0;
+    padding: 0;
+    box-sizing:content-box;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto 10%;
+    gap: 5px;
+    
+}
+
+.estructura {
+    width: 100%;
+    height: 100%;
+}
+
+.titulo {
+    background-color: aqua;
+    color: darkblue;
+    border-style: solid;
+}
+
+.contenido {
+    background-color: yellow;
+    width: 80%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: darkgoldenrod;
+    border-style: solid;
+}
+
+.pie-de-pagina {
+    background-color: green;
+    color: darkgreen;
+    border-style: solid;
+}
