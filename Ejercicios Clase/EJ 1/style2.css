@@ -19,6 +19,8 @@ body {
 
 .titulo {
     background-color: aqua;
+    border-color: darkblue;
+    border-style: solid;
 }
 
 .contenido {
@@ -27,11 +29,15 @@ body {
 
 .pie-de-pagina {
     background-color: black;
+    border-color: grey;
+    border-style: solid;
     
 }
 
 .centro-grande {
     background-color: yellow;
+    border-color: darkgoldenrod;
+    border-style: solid;
     width: 70%;
     float: right;
     
@@ -39,7 +45,9 @@ body {
 
 .centro-peque {
     background-color: maroon;
-    width: 29.7%;
+    border-color: darkred;
+    border-style: solid;
+    width: 29.3%;
    float: left;
 
 }
