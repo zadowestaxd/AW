@@ -1,0 +1,140 @@
+body {
+    --structure-margin: 5px;
+    margin: 0;
+    padding: 0;
+    box-sizing:content-box;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto 10%;
+    gap: 5px;
+}
+
+.estructura {
+    width: 100%;
+    height: 100%;
+}
+
+.titulo {
+}
+
+.contenido {
+    
+}
+
+.pie-de-pagina {
+    background-color: black;
+    border-color: grey;
+    border-style: solid;
+    
+}
+
+.centro-grande {
+    background-color: yellow;
+    border-color: darkgoldenrod;
+    border-style: solid;
+    height: 50%;
+    width: 71.5%;
+    float: bottom;
+    margin-top: 5px;
+    
+}
+
+.centro-peque {
+    background-color: maroon;
+    border-color: darkred;
+    border-style: solid;
+    height: 46%;
+    width: 71.5%;
+   float: top;
+   margin-top: 5px;
+   margin-bottom: 5px;
+
+}
+
+.intermedio {
+    background-color: green;
+    border-color: darkgreen;
+    border-style: solid;
+    float: bottom;
+    height: 32%;
+}
+
+.arriba {
+    background-color: aqua;
+    border-color: darkblue;
+    border-style: solid;
+    float: top;
+    height: 60%;
+    margin-bottom: 5px;
+}
+
+.intermedio-derecha {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    background-color: chartreuse;
+    border-color: darkolivegreen;
+    border-style: solid;
+    width: 27.5%;
+    height: 98%;
+    float: right;
+}
+
+.derecha-arriba {
+    background-color: orange;
+    border-color: darkorange;
+    border-style: solid;
+    float: top;
+    height: 30%;
+    width: 96.5%;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.derecha-abajo {
+    background-color: magenta;
+    border-color: darkmagenta;
+    border-style: solid;
+    float: bottom;
+    height: 65%;
+    width: 96.5%;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.icono {
+    background-color: lightpink;
+    border-color: magenta;
+    border-style: solid;
+    float: left;
+    width: 7%;
+    height: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+
+}
+.identificacion{
+    background-color:crimson;
+    border-color: darkred;
+    border-style: solid;
+    float: right;
+    width: 17%;
+    height: 71%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.titulo1{
+    background-color:blue;
+    border-color: darkblue;
+    border-style: solid;
+    float: right;
+    width: 91%;
+    height: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
