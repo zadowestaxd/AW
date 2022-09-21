@@ -1,0 +1,33 @@
+body{
+    --structure-margin: 5px;
+    margin: 0;
+    padding: 0;
+    box-sizing:content-box;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto 10%;
+    gap: 5px;
+}
+
+.estructura {
+    width: 100%;
+    height: 100%;
+}
+
+.arriba {
+    background-color: aqua;
+    border-color: darkblue;
+    border-style: solid;
+    float: top;
+    height: 70%;
+    margin-bottom: 5px;
+}
+
+.rojo {
+    color:red;
+   }
+.resaltado {
+    background:lightgray;
+}
