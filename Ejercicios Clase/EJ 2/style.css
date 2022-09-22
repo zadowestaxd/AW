@@ -31,3 +31,13 @@ body{
 .resaltado {
     background:lightgray;
 }
+
+table {
+    width: 35%;
+    float: left;
+    /*border: 1px solid;*/
+  }
+
+  #tc {
+    font-style: italic;
+   }
