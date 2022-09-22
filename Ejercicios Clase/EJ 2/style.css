@@ -10,8 +10,6 @@ body {
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 20% auto 10%;
   gap: 5px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -41,14 +39,17 @@ body {
 table {
   width: 35%;
   float: left;
+  text-align: center;
   /*border: 1px solid;*/
 }
 
 table td {
   font-style: italic;
+ 
 }
 
 #tc {
+  
   font-style: italic;
 }
 
@@ -92,6 +93,7 @@ ul.menu {
 
 ul.menu li {
   display: inline-block;
+  
 }
 
 ul.menu a {
@@ -103,5 +105,10 @@ ul.menu a {
 
 .rojo-claro {
   background-color: rgb(183, 18, 52);
+  color: lightgray;
   width: 35%;
+}
+
+.fondo{
+  background-color: black;
 }
