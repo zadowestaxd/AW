@@ -66,13 +66,19 @@ body {
 }
 
 .caja {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
     height: 48px;
+    width: 44%;
+    text-align: left;
     border-color: darkblue;
     border-style: solid;
-    background-color: aqua;
+    color:blue;
 }
 .centro {
-
+    margin-top: 10%;
+    align-self: center;
 }
 
 .boton-finalizar {
