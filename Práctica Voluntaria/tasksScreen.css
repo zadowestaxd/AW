@@ -47,16 +47,16 @@ body {
   float: right;  
   width: auto;
   height: auto;
+  padding: 4px;
   border-color: black; 
   border-style: solid;
-  background-color: rgb(600, 600, 600);
   margin-right:8px;
+  color: red;
 }
 
 .boton {
     float: right;
-    margin-top:25px;
-    margin-right: 48px;
+    margin-right: 64px;
     margin-left: 80%;
 }
 .caja-derecha{
@@ -71,29 +71,83 @@ body {
     margin-top: 8px;
     height: 48px;
     width: 44%;
-    text-align: left;
     border-color: darkblue;
     border-style: solid;
-    color:blue;
+    color:rgb(68, 114, 198);
+   font-size: large;
 }
+
 .centro {
     margin-top: 10%;
-    align-self: center;
 }
 
-.boton-finalizar {
-
+.cajita{
+    position: relative;
+    border-color: darkblue;
+    border-style: solid;
+    border-radius: 4px;
+    height: 50%;
+    padding: 4px;
+    width: auto;
+    
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    color:black;
+    
 }
 
-.info {
-
-
+.span1 {
+    margin-left: 8px;
+    display:inline;
 }
 
-.boton-aniadir {
-
+.tachado{
+    text-decoration:line-through;
+    margin-left: 8px;
 }
 
-.boton-eliminar {
-
+.finalizar{
+    padding: 1px;
+    float: right;
+    border-color: darkblue;
+    border-style: solid;
+    height:80%;
+    width:10%;
+    display: flex;
+    align-items: center;
+    margin-top: 1px;
+    margin-right: 2px;
+   
 }
+a:link {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: red;
+    background-color: transparent;
+    text-decoration:none;
+  }
+
+  a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  .alineador{
+    margin-top: 8px;
+    display: inline-flex;
+   float: left;
+   align-items: center;
+   
+  }
