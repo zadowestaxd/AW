@@ -23,6 +23,7 @@ body {
   height: 25.6%;
   text-align : center;
   top: 0;
+  display: none;
 }
 
 .icono {
@@ -32,6 +33,7 @@ body {
   float: left;
   margin-bottom: 16px;
   margin-left: 8px;
+  display: none;
 }
 
 
@@ -40,6 +42,7 @@ body {
     height: 10%;
     float: right;
     margin-right:8px;
+    display: none;
 }
 
 .datos {
@@ -51,36 +54,33 @@ body {
   border-style: solid;
   margin-right:8px;
   color: red;
+  display: none;
 }
 
+.boton {
+    float: right;
+    margin-right: 64px;
+    margin-left: 80%;
+    display: none;
+}
 
 .caja-derecha{
     width: 35%;
     height: auto;
     float: right;
+    display: none;
 }
 
 .caja {
-    margin-left: 50%;
-    transform: translateX(-50%);
-    margin-top: 8px;
-    height: 48px;
-    width: 44%;
-    border-color: darkblue;
-    border-style: solid;
-    color:rgb(68, 114, 198);
-   font-size: larger;
+    display: inline;
 }
-
-
-
 
 .centro {
     margin-top: 10%;
 }
 
 .cajita{
-    
+    position: relative;
     border-color: darkblue;
     border-style: solid;
     border-radius: 4px;
@@ -92,6 +92,7 @@ body {
     align-items: center;
     margin-left: 8px;
     color:black;
+    display: none;
     
 }
 
@@ -100,13 +101,17 @@ body {
     display:inline;
 }
 
+.span2{
+    display: none;
+}
+
 .tachado{
     text-decoration:line-through;
     margin-left: 8px;
 }
 
 .finalizar{
-    padding-left: 2px;
+    padding: 1px;
     float: right;
     border-color: darkblue;
     border-style: solid;
@@ -114,12 +119,14 @@ body {
     width:10%;
     display: flex;
     align-items: center;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-right: 2px;
+    display: none;
+   
 }
 
 a:link {
-  color:red;
+    color: red;
     background-color: transparent;
     text-decoration: none;
   }
@@ -131,11 +138,16 @@ a:hover {
   }
 
   a:visited {
-    color:red;
+    color: red;
     background-color: transparent;
     text-decoration:none;
   }
 
+  a:active {
+    color: red;
+    background-color: transparent;
+    text-decoration: none;
+  }
 
   .alineador{
     margin-top: 8px;
@@ -144,57 +156,18 @@ a:hover {
    align-items: center;
    
   }
-  .span2{
-    align-items: center;
-  }
   .span3{
-    display: none;
+    color:black;
   }
-
-  .boton {
+  .aniadir {
     float: right;
-    margin-right: 64px;
-    margin-left: 80%;
-}
-
-  .boton1{
     border-style: solid;
     border-color: black;
     padding-top: 4px;
     padding-bottom: 4px;
     padding-left: 8px;
     padding-right: 8px;
-  }
-
-  .eliminar {
-    height: 44px;
-    width: 128px;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-color: red;
-    background-color: lightsalmon;
-    border-style: solid;
-    float: left;
-    display: flex;
-    align-items: center;
-    margin-top: 48px;
-    margin-left: 28%;
-    font-size: larger;
-  }
-
-  .aniadir {
-    height: 44px;
-    width: 128px;
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-top: 48px;
-    background-color: lightsalmon;
-    border-style: solid;
-    color:rgb(68, 114, 198);
-    float: right;
-    border-style: solid;
-    border-color: red;
     margin-right: 28%;
     font-size: larger;
-    
+    display:none;
 }
