@@ -1,14 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-	<meta charset="utf-8">
-	<script src="planets.js" type="text/javascript"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="tasksScreen.css" media="screen" />
+	<script src="js.js" type="text/javascript"></script>
+	<title>Aplicaciones Web</title>
+</head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/x-ico"
+	href="https://www.learningcontainer.com/wp-content/uploads/2020/09/Sample-ICO-file-Download-for-testing.ico">
 </head>
 
 <body>
-	Abre las herramientas del desarrollador y recarga la página
-	para visualizar el resultado del programa.
+
+	<span class="span3"> Tareas
+		<ul class="lista">
+			<li class="pendiente"><strong>Preparar Prácticas AW</strong>: (Universidad)(AW) </li>
+			<li class="sangria"><strong class="tachado"> Mirar fechas del congreso</strong></li>
+			<li class="pendiente"><strong>Ir al supermercado</strong>: (Personal)(Básicos) </li>
+			<li class="pendiente"><strong>Jugar al fútbol</strong>: (Personal)(Deportes) </li>
+			<li class="pendiente"><strong>Hablar con profesor</strong>: (Universidad)(TP2) </li>
+		</ul>
+	</span>
+
+	<div class="estructura cabecera">
+		<div class="estructura icono">
+			<img src="https://upload.wikimedia.org/wikipedia/donate/4/4f/Museum_Icon_local.png" height="48" width="64"
+				alt="icono">
+		</div>
+		<div class="estructura caja-derecha">
+			<p class="estructura datos">
+				<a class="a1" href=>campusVerano2022@ucm.es</a>
+			</p>
+			<div class="estructura usuario">
+				<img src="https://www.softzone.es/app/uploads-softzone.es/2018/04/guest.png" height="50" width="50"
+					alt="usr">
+			</div>
+			<div class="boton">
+				<button class="boton1" onclick="window.location.href='https://google.com';"> Desconectar</button>
+			</div>
+		</div>
+	</div>
+	<div class="estructura centro">
+		<div class="caja">
+			<div class="alineador">
+				<span class="span1"><strong>Preparar Practicas AW </strong></span>
+				<div class="estructura cajita"> Universidad </div>
+				<div class="estructura cajita"> AW </div>
+			</div>
+			<div class="finalizar">
+				<a href="https://google.com"> <span>Finalizar</span></a>
+			</div>
+		</div>
+		<div class="caja">
+			<div class="alineador">
+				<strong class="tachado">Mirar fechas del congreso </strong>
+			</div>
+		</div>
+		<div class="caja">
+			<div class="alineador">
+				<span class="span1"><strong>Ir al supermercado </strong></span>
+				<div class="estructura cajita"> Personal </div>
+				<div class="estructura cajita"> Básicos </div>
+			</div>
+			<div class="finalizar">
+				<a href="https://google.com"> <span>Finalizar</span></a>
+			</div>
+		</div>
+		<div class="caja">
+			<div class="alineador">
+				<span class="span1"><strong>Jugar al fútbol </strong></span>
+				<div class="estructura cajita"> Personal </div>
+				<div class="estructura cajita"> Deporte </div>
+			</div>
+			<div class="finalizar">
+				<a href="https://google.com"> <span>Finalizar</span></a>
+			</div>
+		</div>
+		<div class="caja">
+			<div class="alineador">
+				<span class="span1"><strong>Hablar con el profesor </strong></span>
+				<div class="estructura cajita"> Universidad </div>
+				<div class="estructura cajita"> TP2 </div>
+			</div>
+			<div class="finalizar">
+				<a href="https://google.com"> <span>Finalizar</span></a>
+			</div>
+		</div>
+		<div class="eliminar">
+			<a href="https://google.com"> <span>Eliminar tareas</span></a>
+		</div>
+		<button class="aniadir" onclick="window.location.href='https://google.com';"> Añadir tarea</button>
+
+		</button>
+	</div>
 </body>
 
 </html>

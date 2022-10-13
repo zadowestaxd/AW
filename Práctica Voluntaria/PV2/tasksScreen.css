@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200&family=Roboto:wght@100&display=swap');
+
+
+body {
+    --structure-margin: 5px;
+    margin: 0;
+    padding: 0;
+    box-sizing:content-box;
+    height: 100vh;
+    width: 100%;
+}
+
+.estructura {
+    width: 100%;
+    height: 100%;
+}
+
+.cabecera {
+  position:fixed;
+  width: 100%;
+  height: 25.6%;
+  top: 0;
+}
+
+.icono {
+  width: auto;
+  height: auto;
+  float: left;
+  margin-bottom: 16px;
+  margin-left: 8px;
+}
+
+
+.usuario {
+    width: auto;
+    height: 10%;
+    float: right;
+    margin-right:8px;
+}
+
+.datos {
+  float: right;  
+  width: auto;
+  height: auto;
+  padding: 4px;
+  border-color: black; 
+  border-style: solid;
+  margin-right:8px;
+  color: red;
+}
+
+
+.caja-derecha{
+    width: 35%;
+    height: auto;
+    float: right;
+}
+
+.caja {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    height: 48px;
+    width: 44%;
+    border-color: darkblue;
+    border-style: solid;
+    color:rgb(68, 114, 198);
+   font-size: larger;
+   font-family: 'Roboto';
+}
+
+
+
+
+.centro {
+    margin-top: 10%;
+}
+
+.cajita{
+    
+    border-color: darkblue;
+    border-style: solid;
+    border-radius: 4px;
+    height: 50%;
+    padding: 4px;
+    width: auto;
+    font-size: medium;
+    margin-left: 8px;
+    color:black;
+}
+
+.span1 {
+    margin-left: 8px;
+}
+
+.tachado{
+    text-decoration:line-through;
+    margin-left: 8px;
+}
+
+.finalizar{
+    padding-left: 2px;
+    float: right;
+    border-color: darkblue;
+    border-style: solid;
+    height:80%;
+    width:10%;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-right: 2px;
+    font-size: large;
+}
+
+a:link {
+  color:red;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+a:hover {
+    color: green;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color:red;
+    background-color: transparent;
+    text-decoration:none;
+  }
+
+
+  .alineador{
+    margin-top: 8px;
+    display: inline-flex;
+   float: left;
+   align-items: center;
+   
+  }
+  
+  .span3{
+    display: none;
+  }
+
+  .boton {
+    float: right;
+    margin-right: 64px;
+    margin-left: 80%;
+}
+
+  .boton1{
+    border-style: solid;
+    border-color: black;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .eliminar {
+    height: 44px;
+    width: 128px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-color: red;
+    background-color: lightsalmon;
+    border-style: solid;
+    float: left;
+    display: flex;
+    align-items: center;
+    margin-top: 48px;
+    margin-left: 28%;
+    font-size: larger;
+    font-family: 'Roboto';
+  }
+
+  .aniadir {
+    height: 46px;
+    width: 136px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-top: 47px;
+    background-color: lightblue ;
+    border-style: solid;
+    color:rgb(68, 114, 198);
+    float: right;
+    border-style: solid;
+    border-color: red;
+    margin-right: 28%;
+    font-size: larger;
+    font-family: 'Roboto';
+    
+}
+
+a.a1:link {
+  color:black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+a.a1:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+a.a1:visited {
+    color:black;
+    background-color: transparent;
+    text-decoration:none;
+  }
+
+  ul.lista {
+    display:none;
+  }
+  li.sangria{
+    margin-left: 8px;
+  }
