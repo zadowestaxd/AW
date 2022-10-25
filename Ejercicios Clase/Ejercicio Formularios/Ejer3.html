@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Formulario</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Ejer3.css" />
+</head>
+
+<body>
+    <header>
+        <div class="head font1">
+            <h1>Suscripción a Revista</h1>
+        </div>
+    </header>
+    <form>
+        <div class="container">
+            <div class="font1">
+                <h2>Datos personales:</h2>
+            </div>
+            <div class="row font1">
+                <div></div>
+                <div>
+                    <label class="lalign-right" for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="name">
+                </div>
+                <div>
+                    <label class="lalign-right" for="primer apellido">Primer Apellido:</label>
+                    <input type="text" id="primer apellido" name="family name">
+                </div>
+                <div>
+                    <label class="lalign-right" for="segundoapellido">Segundo Apellido:</label>
+                    <input type="text" id="segundo apellido" name="last name">
+                </div>
+            </div>
+
+            <div class="column font1">
+                <label class="lalign-right" for="direccion">Dirección:</label>
+                <input type="text" placeholder="Calle, número y piso" id="direccion" name="adress">
+
+                <label class="lalign-right" for="email">E-Mail:</label>
+                <input type="email" placeholder="turevista@gmail.es" id="email" name="email">
+
+                <label class="lalign-right" for="password">Contraseña:</label>
+                <input type="password" placeholder="Mínimo 8 caracteres" id="password" name="pwd">
+            </div>
+            <div class="column font1">
+                <p>Sexo:</p>
+                <br>
+                <input type="radio" id="hombre" name="sexo" value="Hombre">
+                <label class="lalign-left" for="hombre">Hombre</label>
+                <input type="radio" id="mujer" name="sexo" value="Mujer">
+                <label class="lalign-left" for="mujer">Mujer</label>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="header font1">
+                <h2>Nivel de estudios e intereses</h2>
+            </div>
+
+            <div class="font1">
+                <label for="estudios">Nivel de estudios:</label>
+                <select name="grado" id="estudios">
+                    <option value="1">Certificado escolar</option>
+                    <option value="3">Grado medio</option>
+                    <option value="2">Bachillerato</option>
+                    <option value="2">Grado superior</option>
+                    <option value="4">Grado universitario</option>
+                </select>
+
+                <p>Recibir artículos sobre los siguientes temas:</p>
+
+                <div class="column">
+                    <input type="checkbox" id="musica" name="music" value="Música">
+                    <label for="musica">Música</label>
+
+                    <input type="checkbox" id="deportes" name="sports" value="Deportes">
+                    <label for="deportes">Deportes</label>
+
+                    <input type="checkbox" id="cine" name="big picture" value="Cine">
+                    <label for="cine">Cine</label>
+
+                    <input type="checkbox" id="libros" name="books" value="Libros">
+                    <label for="libros">Libros</label>
+
+                    <input type="checkbox" id="ciencia" name="science!" value="Ciencia">
+                    <label for="ciencia">Ciencia</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="header font1">
+                <h2>Datos sobre la revista:</h2>
+            </div>
+
+            <div class="font1">
+                <label for="frecuencia">Frecuencia con la que se recibirá la revista:</label>
+                <select name="freq" id="frecuencia">
+                    <option value="1">Diaria</option>
+                    <option value="2" selected>Semanal</option>
+                    <option value="3">Mensual</option>
+                    <option value="4">Anual</option>
+                </select>
+                <p>Puedes mandar tu artículo sobre cualquier tema de los que tratamos. Nosotros lo valoraremos para que
+                    pueda ser publicado.</p>
+                <input class="fileButton" id="fileButton" name="myfile" type="file" />
+                <p>Si deseas mandar simplemente una opinión o comentario escríbelo aquí</p>
+                <textarea class="opiniontext" id="opinion" placeholder="Escribe tu opinión :)." name="opinion" rows="4"
+                    cols="50"></textarea>
+            </div>
+        </div>
+        <input class="mybutton font1" type="reset">
+        <input class="mybutton font1 align-right" type="submit">
+        <div class="izquierda"> Recarga la página para volver a hacer el formulario</div>
+        <div class="derecha">Envía el formulario por correo electrónico</div>
+    </form>
+</body>
+
+</html>
