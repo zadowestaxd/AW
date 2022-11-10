@@ -3,7 +3,7 @@
 const mysql = require("mysql");
 const config = require("./config");
 const DAOUsers = require("./DAOUsers");
-const DAOTasks = require("./DAOTasksprueba");
+const DAOTasks = require("./DAOTasks");
 
 // Crear el pool de conexiones
 const pool = mysql.createPool({
@@ -19,19 +19,17 @@ let daoTask = new DAOTasks(pool);
 // Definición de las funciones callback
 // Uso de los métodos de las clases DAOUsers y DAOTasks
 
-daoUser.isUserCorrect("yo@email.com", 1234, function (error, existe) {
+daoUser.isUserCorrect("klk@gmail.com", 1111, function (error, existe) {
     if (error) {
-        console.log("error al comprobar existencia usuario.");
+        console.log(error.message);
+    } else if (result) {
+        console.log("Usuario y contraseña correctos");
     } else {
-        if (existe) {
-            console.log("El usuario existe.");
-        } else {
-            console.log("El usuario no existe.");
-        }
+        console.log("Usuario y/o contraseña incorrectos");
     }
 });
 
-daoUser.getUserImageName("yo@email.com", function (error, str) {
+daoUser.getUserImageName("amigo@email.com", function (error, str) {
     if (error) {
         console.log("error al obtener la imagen.");
     } else {
@@ -39,7 +37,7 @@ daoUser.getUserImageName("yo@email.com", function (error, str) {
     }
 });
 
-daoTask.getAllTasks("tio@email.com", function (error, str) {
+daoTask.getAllTasks("vecondios@email.com", function (error, str) {
     if (error) {
         console.log("error al obtener todas las tareas.");
     } else {
@@ -53,7 +51,7 @@ let task = {
     "tags": ["uno", "dos"]
 };
 
-daoTask.insertTask("tio@email.com", task, function (error) {
+daoTask.insertTask("klk@gmail.com", task, function (error) {
     if (error) {
         console.log("error al insertar la nueva tarea.");
     } else {
@@ -69,7 +67,7 @@ daoTask.markTaskDone(2, function (error) {
     }
 });
 
-daoTask.deleteCompleted("tio@email.com", function (error) {
+daoTask.deleteCompleted("klk@gmail.com", function (error) {
     if (error) {
         console.log("error al borrar las tareas completadas.");
     } else {

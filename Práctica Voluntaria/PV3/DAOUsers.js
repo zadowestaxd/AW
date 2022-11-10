@@ -1,3 +1,5 @@
+"use strict"
+
 const mysql = require("mysql");
 
 class DAOUsers {
@@ -5,49 +7,44 @@ class DAOUsers {
         this.pool = pool;
     }
 
-    //USUARIO CORRECTO
-    //comprueba si en la base de datos existe un usuario cuyo identificador es email y su password coincide con password.
     isUserCorrect(email, password, callback) {
-        this.pool.getConnection(function (err, connection) {
-            if (err) {
-                console.log("Error de acceso a la base de datos");
-                callback(err, null);
+        this.pool.getConnection(function (error, connection) {
+            if (error) {
+                console.log(`error: conexion con base de datos fallida: ${error.message}`);
+                callback(new Error("Error de conexión a la base de datos"));
             } else {
                 const sql = "SELECT * FROM user WHERE email = ? AND password = ?";
-                connection.query(sql, [email, password], function (err, resultado) {
+                connection.query(sql, [email, password], function (error, result) {
                     connection.release();
-                    if (err) {
-                        callback(err, null);
+                    if (error) {
+                        callback(new Error("Error de acceso a la base de datos"));
                     } else {
-                        if (resultado.length > 0) {
-                            callback(null, true);
-                        } else {
-                            callback(null, false);
-                        }
+                        if (rows.length === 0) {
+                            callback(null, false); //no está el usuario con el password proporcionado
+                        } else
+                            callback(null, result);
                     }
                 });
             }
         });
     }
 
-    //IMAGEN DE PERFIN DE USUARIO
-    //obtiene el nombre de fichero que contiene la imagen de perfil de un usuario cuyo identificador en la base de datos es email.
     getUserImageName(email, callback) {
-        this.pool.getConnection(function (err, connection) {
-            if (err) {
-                callback(err, null);
-                console.log(`Error al obtener la conexión: ${err.message}`);
+        this.pool.getConnection(function (error, connection) {
+            if (error) {
+                callback(error);
+                console.log(`error al obtener la conexión: ${error.message}`);
             } else {
                 const sql = "SELECT img FROM user WHERE email = ?";
-                connection.query(sql, [email], function (err, resultado) {
+                connection.query(sql, [email], function (error, result) {
                     connection.release();
-                    if (err) {
-                        callback(err, null);
+                    if (error) {
+                        callback(error);
                     } else {
-                        if (resultado.length > 0) {
-                            callback(null, resultado);
+                        if (result.length > 0) {
+                            callback(null, result);
                         } else {
-                            callback(null, false);
+                            callback();
                         }
                     }
                 });
