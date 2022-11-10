@@ -7,19 +7,17 @@ class DAOUsers {
         this.pool.getConnection(function (error, connection) {
             if (error) {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
-                callback(error, null);
+                callback(error);
             } else {
                 const sql = "SELECT * FROM user WHERE email = ? AND password = ?";
                 connection.query(sql, [email, password], function (error, result) {
                     connection.release();
                     if (error) {
-                        callback(error, null);
+                        callback(error);
                     } else {
-                        if (result.length > 0) {
-                            callback(null, true);
-                        } else {
-                            callback(null, false);
-                        }
+
+                        callback(null, result);
+
                     }
                 });
             }
