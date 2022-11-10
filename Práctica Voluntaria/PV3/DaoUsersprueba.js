@@ -1,3 +1,7 @@
+"use strict"
+
+const mysql = require("mysql");
+
 class DAOUsers {
     constructor(pool) {
         this.pool = pool;
@@ -15,9 +19,7 @@ class DAOUsers {
                     if (error) {
                         callback(error);
                     } else {
-
                         callback(null, result);
-
                     }
                 });
             }
