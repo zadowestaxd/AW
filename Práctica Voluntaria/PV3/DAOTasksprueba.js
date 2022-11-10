@@ -26,6 +26,7 @@ class DAOTasks {
 
         this.pool.getConnection(function (error, connection) {
             if (error) {
+                console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
                 const sql = "SELECT * FROM task JOIN tag ON taskId = id WHERE user = ? ";
@@ -58,6 +59,7 @@ class DAOTasks {
     insertTask(email, task, callback) {
         this.pool.getConnection(function (error, connection) {
             if (error) {
+                console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
                 const sql = "INSERT INTO task(user, text, done) VALUES(?, ?, ?)";
@@ -87,6 +89,7 @@ class DAOTasks {
     markTaskDone(idTask, callback) {
         this.pool.getConnection(function (error, connection) {
             if (error) {
+                console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
                 const sql = "UPDATE task SET done = 1 WHERE id = ?";
@@ -105,8 +108,8 @@ class DAOTasks {
     deleteCompleted(email, callback) {
         this.pool.getConnection(function (error, connection) {
             if (error) {
+                console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
-                console.log(`Error al obtener la conexión: ${error.message}`);
             } else {
                 const sql = "DELETE FROM task WHERE user = ? AND done = 1;";
                 connection.query(sql, [email], function (error) {
