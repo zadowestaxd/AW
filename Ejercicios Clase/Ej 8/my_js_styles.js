@@ -10,6 +10,11 @@ class Figura {
         return true;
     }
 
+    check(params) {
+        return /^[0-9A-F]+$/ig.test(params.slice(1));
+    }
+
+
     esBlanca() {
         if (this.color.toUpperCase() == "#FFFFFFF") {
             return true;
