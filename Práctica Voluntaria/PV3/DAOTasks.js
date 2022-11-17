@@ -58,7 +58,9 @@ class DAOTasks {
 
     insertTask(email, task, callback) {
         this.pool.getConnection(function (error, connection) {
+
             if (error) {
+                connection.release();
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
@@ -74,6 +76,7 @@ class DAOTasks {
                         });
                         const sql1 = `INSERT INTO tag (taskId, tag) VALUES ${generateSQLColumns(values, task.tags)}`;
                         connection.query(sql1, values, function (error) {
+                            connection.release();
                             if (error) {
                                 callback(error);
                             } else {
