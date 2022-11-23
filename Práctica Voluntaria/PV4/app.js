@@ -36,7 +36,7 @@ let listaTareas = [
 
 app.get("/", function (request, response) {
     response.status(200);
-    response.redirect("/tasks");
+    response.render("/tasks");
 });
 
 app.get("/tasks", function (request, response) {
