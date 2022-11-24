@@ -20,18 +20,9 @@ CREATE TABLE aw_tareas_tareas (
   PRIMARY KEY (taskId)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `aw_tareas_tarea`
+ALTER TABLE `aw_tareas_tareas`
 MODIFY `taskId` int(10) NOT NULL AUTO_INCREMENT;
 
-
-CREATE TABLE aw_tareas_user_tarea (
-  taskId int(10) NOT NULL,
-  userId int(10) NOT NULL,
-  done tinyint(1) NOT NULL,
-  PRIMARY KEY (taskId, userId),
-  FOREIGN KEY (userId) REFERENCES aw_tareas_usuarios(userId),
-  FOREIGN KEY (taskId) REFERENCES aw_tareas_tareas(taskId)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE aw_tareas_etiquetas (
   idEtiqueta varchar(10) NOT NULL,
@@ -42,7 +33,14 @@ CREATE TABLE aw_tareas_etiquetas (
 ALTER TABLE `aw_tareas_etiquetas`
 MODIFY `idEtiqueta` int(10) NOT NULL AUTO_INCREMENT;
 
-
+CREATE TABLE aw_tareas_user_tarea (
+  taskId int(10) NOT NULL,
+  userId int(10) NOT NULL,
+  done tinyint(1) NOT NULL,
+  PRIMARY KEY (taskId, userId),
+  FOREIGN KEY (userId) REFERENCES aw_tareas_usuarios(userId),
+  FOREIGN KEY (taskId) REFERENCES aw_tareas_tareas(taskId)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE aw_tareas_tareas_etiqueta (
   taskId int(10) NOT NULL,
@@ -51,6 +49,8 @@ CREATE TABLE aw_tareas_tareas_etiqueta (
   FOREIGN KEY (taskId) REFERENCES aw_tareas_tareas (taskId),
   FOREIGN KEY (idEtiqueta) REFERENCES aw_tareas_etiquetas (idEtiqueta)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 
 COMMIT;
 
