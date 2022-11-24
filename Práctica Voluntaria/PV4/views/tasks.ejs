@@ -35,22 +35,22 @@
 		</div>
 	</div>
 	<div class="estructura centro">
-		<% tareas.forEach(function(tarea, i) { %>
-			<% if (!tarea.done) { %>
+		<% tasks.forEach(function(task, i) { %>
+			<% if (!task.done) { %>
 				<div id="<%=i%>" class="caja alineador">
 					<span class="span1">
-						<%= tarea.texto %>
+						<%= task.text %>
 					</span>
-					<% tarea.etiquetas.forEach(function(etiqueta) { %>
+					<% task.tags.forEach(function(tag) { %>
 						<div class="estructura cajita">
-							<%= etiqueta %>
+							<%= tag %>
 						</div>
 						<% }); %>
 							<a href="finish/<%=i%>" class="finalizar">MARCAR FINALIZADA</a>
 							<% } else { %>
 								<div id="<%=i%>" class="caja alineador tachado">
 									<h3 class="done">
-										<%= tarea.texto %>
+										<%= task.text %>
 									</h3>
 									<% } %>
 								</div>
