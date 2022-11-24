@@ -29,7 +29,7 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql = "SELECT * FROM task JOIN tag ON taskId = id WHERE user = ? ";
+                const sql = "SELECT * FROM aw_tareas_tareas JOIN tag ON taskId = id WHERE user = ? ";
                 connection.query(sql, [email], function (error, aux) {
                     connection.release();
                     if (error) {
