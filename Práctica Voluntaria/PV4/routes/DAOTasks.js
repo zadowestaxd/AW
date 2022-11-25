@@ -29,27 +29,27 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql = "SELECT tareas.texto, etiquetas.texto FROM tareas JOIN tareas_etiquetas ON tareas.idTarea = tareas_etiquetas.idTarea JOIN etiquetas ON etiquetas.idEtiqueta = tareas_etiquetas.idEtiqueta JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea JOIN usuarios ON user_tareas.idUser = usuarios.idUser WHERE email = ? ";
-                connection.query(sql, [email], function (error, aux) {
+                const sql = "SELECT usuarios.idUser, usuarios.email, tareas.idTarea, tareas.texto, user_tareas.hecho, etiquetas.texto FROM tareas JOIN tareas_etiquetas ON tareas.idTarea = tareas_etiquetas.idTarea JOIN etiquetas ON etiquetas.idEtiqueta = tareas_etiquetas.idEtiqueta JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea JOIN usuarios ON user_tareas.idUser = usuarios.idUser WHERE email = ? ";
+                connection.query(sql, [email], function (err, resultado) {
                     connection.release();
-                    if (error) {
-                        callback(error);
+                    if (err) {
+                        callback(err, null);
                     } else {
-                        const array = [];
-                        const etiquetas = [];
-
-                        aux.forEach(element => {
-                            etiquetas.push(element.etiqueta);
-                        });
-
-                        array.push({
-                            "id": aux[0].id,
-                            "text": aux[0].text,
-                            "done": aux[0].done,
-                            "etiquetas": etiquetas,
-                        });
-
-                        callback(null, array);
+                        let tasks = [];
+                        for (let item of resultado) {
+                            if (!tasks[item.id]) {
+                                tasks[item.id] = {
+                                    id: item.id,
+                                    text: item.text,
+                                    done: item.done,
+                                    tags: []
+                                };
+                            }
+                            if (item.tag) {
+                                tasks[item.id].tags.push(item.tag);
+                            }
+                        }
+                        callback(null, tasks);
                     }
                 });
             }

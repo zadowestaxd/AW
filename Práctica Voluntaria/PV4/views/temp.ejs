@@ -1,0 +1,35 @@
+<main>
+    <% tasks.forEach(function(task, i) { %>
+        <% if (!task.done) { %>
+            <div id="<%=i%>" class="caja alineador">
+                <span class="span1">
+                    <%= task.text %>
+                </span>
+                <% task.tags.foreach(function(tag) { %>
+                    <div class="estructura cajita">
+                        <%= tag %>
+                    </div>
+                    <% }); %>
+                        <a href="finish/<%=i%>" class="finalizar">MARCAR FINALIZADA</a>
+                        <% } else { %>
+                            <div id="<%=i%>" class="caja alineador tachado">
+                                <h3 class="done">
+                                    <%= task.text %>
+                                </h3>
+                                <% } %>
+                            </div>
+                            <% }); %>
+            </div>
+            <div id="s1" class="aniadir">
+                <form class="add_form" action="/addTask" method="POST">
+                    <input class="add_text" type="text" name="text" placeholder="Introducir nombre tarea" required>
+                    <input class="task_button add_button" type="submit" value="AÑADIR">
+                </form>
+            </div>
+            <div id="b1" class="estructura">
+                <a href="deleteCompleted/" class="eliminar">ELIMINAR TAREAS COMPLETADAS</a>
+            </div>
+</main>
+</body>
+
+</html>
