@@ -41,11 +41,11 @@
 					<h3>
 						<%= task.text %>
 					</h3>
-					<% task.tags.forEach(function(tag) { %>
+					<% task.tags.forEach(function(tag, i) { %>
 						<span class="tag">
-							<%= tag %>
+							<%= task.tag %>
 						</span>
-						<% }); %>
+						<% } %>
 							<a href="finish/<%=i%>" class="task_button">MARCAR FINALIZADA</a>
 							<% } else { %>
 								<div id="<%=i%>" class="task done">
@@ -54,18 +54,19 @@
 									</h3>
 									<% } %>
 								</div>
-								<% }); %>
+				</div>
+				<% }); %>
 
-									<div id="s1" class="add">
-										<form class="add_form" action="/addTask" method="POST">
-											<input class="add_text" type="text" name="text"
-												placeholder="Introducir nombre tarea" required>
-											<input class="task_button add_button" type="submit" value="AÑADIR">
-										</form>
-									</div>
-									<div id="b1" class="delete">
-										<a href="deleteCompleted/" class="task_button">ELIMINAR TAREAS COMPLETADAS</a>
-									</div>
+					<div id="s1" class="add">
+						<form class="add_form" action="/addTask" method="POST">
+							<input class="add_text" type="text" name="text" placeholder="Introducir nombre tarea"
+								required>
+							<input class="task_button add_button" type="submit" value="AÑADIR">
+						</form>
+					</div>
+					<div id="b1" class="delete">
+						<a href="deleteCompleted/" class="task_button">ELIMINAR TAREAS COMPLETADAS</a>
+					</div>
 	</main>
 </body>
 

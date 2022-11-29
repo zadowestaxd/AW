@@ -29,7 +29,7 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql = "SELECT usuarios.idUser, usuarios.email, tareas.idTarea, tareas.texto, user_tareas.hecho, etiquetas.texto FROM tareas JOIN tareas_etiquetas ON tareas.idTarea = tareas_etiquetas.idTarea JOIN etiquetas ON etiquetas.idEtiqueta = tareas_etiquetas.idEtiqueta JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea JOIN usuarios ON user_tareas.idUser = usuarios.idUser WHERE email = ? ";
+                const sql = "SELECT tareas.idTarea, tareas.texto, user_tareas.hecho, etiquetas.tag FROM tareas JOIN tareas_etiquetas ON tareas.idTarea = tareas_etiquetas.idTarea JOIN etiquetas ON etiquetas.idEtiqueta = tareas_etiquetas.idEtiqueta JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea JOIN usuarios ON user_tareas.idUser = usuarios.idUser WHERE email = ? ";
                 connection.query(sql, [email], function (err, resultado) {
                     connection.release();
                     if (err) {
@@ -37,17 +37,21 @@ class DAOTasks {
                     } else {
                         let tasks = [];
                         for (let item of resultado) {
-                            if (!tasks[item.id]) {
-                                tasks[item.id] = {
-                                    id: item.id,
-                                    text: item.text,
-                                    done: item.done,
-                                    tags: []
+                            let cont;
+                            if (!tasks[item.idTarea]) {
+                                cont = 0;
+                                tasks[item.idTarea] = {
+                                    id: item.idTarea,
+                                    text: item.texto,
+                                    done: item.hecho,
+                                    tags: [cont] = item.tag
                                 };
                             }
-                            if (item.tag) {
-                                tasks[item.id].tags.push(item.tag);
+                            else {
+                                cont++;
+                                tasks[item.idTarea].tags[cont] = item.tag;
                             }
+
                         }
                         callback(null, tasks);
                     }

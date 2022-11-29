@@ -113,7 +113,7 @@ body {
 }
 
 a:link {
-  color: red;
+  color: rgb(153, 25, 207);
   background-color: transparent;
   text-decoration: none;
 }
@@ -125,7 +125,7 @@ a:hover {
 }
 
 a:visited {
-  color: red;
+  color: rgb(153, 25, 207);
   background-color: transparent;
   text-decoration: none;
 }
@@ -219,6 +219,7 @@ li.sangria {
   margin-left: 8px;
 }
 
+/*de aqui en adelante es extern*/
 * {
   margin: 0;
   padding: 0;
