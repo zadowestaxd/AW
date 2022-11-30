@@ -29,7 +29,7 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql = "SELECT tareas.idTarea, tareas.texto, user_tareas.hecho, etiquetas.tag FROM tareas JOIN tareas_etiquetas ON tareas.idTarea = tareas_etiquetas.idTarea JOIN etiquetas ON etiquetas.idEtiqueta = tareas_etiquetas.idEtiqueta JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea JOIN usuarios ON user_tareas.idUser = usuarios.idUser WHERE email = ? ";
+                const sql = "SELECT tareas.idTarea, tareas.texto, user_tareas.hecho, etiquetas.texto FROM tareas JOIN tareas_etiquetas ON tareas.idTarea = tareas_etiquetas.idTarea JOIN etiquetas ON etiquetas.idEtiqueta = tareas_etiquetas.idEtiqueta JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea JOIN usuarios ON user_tareas.idUser = usuarios.idUser WHERE email = ? ";
                 connection.query(sql, [email], function (err, resultado) {
                     connection.release();
                     if (err) {
@@ -46,11 +46,11 @@ class DAOTasks {
                                     done: item.hecho,
                                     tags: []
                                 };
-                                tasks[item.idTarea].tags[cont] = item.tag;
+                                tasks[item.idTarea].tags[cont] = item.texto;
                             }
                             else {
                                 cont++;
-                                tasks[item.idTarea].tags[cont] = item.tag;
+                                tasks[item.idTarea].tags[cont] = item.texto;
                             }
 
                         }
@@ -82,48 +82,59 @@ class DAOTasks {
             } else {
                 const sql = "INSERT INTO tareas(texto) VALUES(?)";
                 connection.query(sql, [tarea.texto], function (error) {
-                    connection.release();
+
                     if (error) {
+                        connection.release();
                         console.log("1");
                         callback(error);
                     } else {
+                        if (tarea.tags != undefined) {
+                            const sql = "SELECT idTarea FORM tareas WHERE texto = ?";
+                            connection.query(sql, [tarea.texto], function (error, idTarea) {
 
-                        const sql = "SELECT idTarea FORM tareas WHERE texto = ?";
-                        connection.query(sql, [tarea.texto], function (error, result) {
-                            connection.release();
-                            if (error) {
-                                console.log("2");
-                                callback(error);
-                            }
-                            const sql1 = `INSERT INTO etiquetas (texto) VALUES (${generateSQLColumns(values, tarea.etiquetas)})`;
-                            connection.query(sql1, values, function (error) {
-                                connection.release();
                                 if (error) {
-                                    console.log("3");
-                                    callback(error);
-                                } else {
-                                    callback();
-                                }
-                            });
-                            const sql = "SELECT idEtiqueta FORM etiquetas WHERE texto = ?";
-                            connection.query(sql, [tarea.texto], function (error, resultSet) {
-                                connection.release();
-                                if (error) {
-                                    console.log("4");
-                                    callback(error);
-                                }
-                                const sql2 = `INSERT INTO tareas_etiquetas (idEtiqueta, idTarea) VALUES (?, ?)`;
-                                connection.query(sql2, [result, resultSet], function (error) {
                                     connection.release();
+                                    console.log("2");
+                                    callback(error);
+                                }
+                                const sql1 = `INSERT INTO etiquetas (texto) VALUES (${tarea.etiquetas.foreach(element)})`;
+                                connection.query(sql1, values, function (error) {
+
                                     if (error) {
+                                        connection.release();
+                                        console.log("3");
                                         callback(error);
-                                        console.log("5");
-                                    } else {
-                                        callback();
                                     }
                                 });
+                                let idTareas;
+                                let contador = 0;
+                                tarea.etiquetas.forEach(element => {
+                                    const sql2 = `SELECT idEtiqueta FORM etiquetas WHERE texto = ?`;
+                                    connection.query(sql2, [element], function (error, idTarea) {
+
+                                        if (error) {
+                                            connection.release();
+                                            console.log("4");
+                                            callback(error);
+                                        }
+                                        idTareas[contador] = idTarea;
+                                        contador++;
+                                    });
+                                });
+                                idTareas.forEach(element => {
+                                    const sql3 = `INSERT INTO tareas_etiquetas (idTarea, idEtiqueta) VALUES (?, ?)`;
+                                    connection.query(sql3, [idTareas, element], function (error) {
+                                        connection.release();
+                                        if (error) {
+                                            callback(error);
+                                            console.log("5");
+                                        } else {
+                                            callback();
+                                        }
+                                    });
+                                });
                             });
-                        });
+                        }
                     }
                 });
             }

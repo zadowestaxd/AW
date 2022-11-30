@@ -34,7 +34,7 @@ function createTask(texto) {
     }
     texto = texto.replace(/@\w*/g, "").trim();
 
-    return { texto, tarea }
+    return { tarea }
 }
 
 module.exports = {
