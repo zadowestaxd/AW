@@ -43,9 +43,9 @@
 					</h3>
 					<% task.tags.forEach(function(tag, i) { %>
 						<span class="tag">
-							<%= task.tag %>
+							<%= tag %>
 						</span>
-						<% } %>
+						<% }); %>
 							<a href="finish/<%=i%>" class="task_button">MARCAR FINALIZADA</a>
 							<% } else { %>
 								<div id="<%=i%>" class="task done">

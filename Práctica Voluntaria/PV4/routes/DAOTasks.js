@@ -36,16 +36,17 @@ class DAOTasks {
                         callback(err, null);
                     } else {
                         let tasks = [];
+                        let cont;
                         for (let item of resultado) {
-                            let cont;
                             if (!tasks[item.idTarea]) {
                                 cont = 0;
                                 tasks[item.idTarea] = {
                                     id: item.idTarea,
                                     text: item.texto,
                                     done: item.hecho,
-                                    tags: [cont] = item.tag
+                                    tags: []
                                 };
+                                tasks[item.idTarea].tags[cont] = item.tag;
                             }
                             else {
                                 cont++;
@@ -60,6 +61,17 @@ class DAOTasks {
         });
     }
 
+    createTask(texto) {
+        let tarea = texto.match(/@\w*/g)
+        if (tarea != undefined && tarea.length != 0) {
+            tarea = tarea.map(e => e.substring(1));
+        }
+        texto = texto.replace(/@\w*/g, "").trim();
+
+        return { texto, tarea }
+    }
+
+
     insertTask(email, tarea, callback) {
         this.pool.getConnection(function (error, connection) {
 
@@ -68,33 +80,49 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql = "INSERT INTO tareas(text) VALUES(?)";
-                connection.query(sql, [tarea.text], function (error, resultado) {
+                const sql = "INSERT INTO tareas(texto) VALUES(?)";
+                connection.query(sql, [tarea.texto], function (error) {
                     connection.release();
                     if (error) {
+                        console.log("1");
                         callback(error);
                     } else {
-                        const values = [];
-                        tarea.etiquetas.forEach(e => {
-                            values.push(resultado.insertId, e);
-                        });
-                        const sql1 = `INSERT INTO etiquetas (idEtiqueta, texto) VALUES ${generateSQLColumns(values, tarea.etiquetas)}`;
-                        connection.query(sql1, values, function (error) {
+
+                        const sql = "SELECT idTarea FORM tareas WHERE texto = ?";
+                        connection.query(sql, [tarea.texto], function (error, result) {
                             connection.release();
                             if (error) {
+                                console.log("2");
                                 callback(error);
-                            } else {
-                                callback();
                             }
-                        });
-                        const sql2 = `INSERT INTO tareas_etiquetas (idEtiqueta, idTarea) VALUES (?, ?)`;
-                        connection.query(sql2, [tarea.etiqueta.idEtiqueta, tarea.idTarea], function (error) {
-                            connection.release();
-                            if (error) {
-                                callback(error);
-                            } else {
-                                callback();
-                            }
+                            const sql1 = `INSERT INTO etiquetas (texto) VALUES (${generateSQLColumns(values, tarea.etiquetas)})`;
+                            connection.query(sql1, values, function (error) {
+                                connection.release();
+                                if (error) {
+                                    console.log("3");
+                                    callback(error);
+                                } else {
+                                    callback();
+                                }
+                            });
+                            const sql = "SELECT idEtiqueta FORM etiquetas WHERE texto = ?";
+                            connection.query(sql, [tarea.texto], function (error, resultSet) {
+                                connection.release();
+                                if (error) {
+                                    console.log("4");
+                                    callback(error);
+                                }
+                                const sql2 = `INSERT INTO tareas_etiquetas (idEtiqueta, idTarea) VALUES (?, ?)`;
+                                connection.query(sql2, [result, resultSet], function (error) {
+                                    connection.release();
+                                    if (error) {
+                                        callback(error);
+                                        console.log("5");
+                                    } else {
+                                        callback();
+                                    }
+                                });
+                            });
                         });
                     }
                 });
@@ -108,7 +136,7 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql = "UPDATE tarea SET done = 1 WHERE id = ?";
+                const sql = "UPDATE tareas JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea SET user_tareas.hecho = 1 WHERE tareas.idTarea = ?";
                 connection.query(sql, [idTarea], function (error) {
                     connection.release();
                     if (error) {
@@ -127,7 +155,7 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql = "DELETE FROM tareas JOIN user_tareas ON idTarea = idTarea JOIN usuarios ON idUser = idUser WHERE email = ? AND done = 1;";
+                const sql = "DELETE tareas FROM tareas JOIN user_tareas ON tareas.idTarea = user_tareas.idTarea JOIN usuarios ON user_tareas.idUser = usuarios.idUser WHERE email = ? AND hecho = 1; ";
                 connection.query(sql, [email], function (error) {
                     connection.release();
                     if (error) {
