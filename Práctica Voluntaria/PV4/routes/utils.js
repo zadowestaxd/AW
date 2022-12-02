@@ -28,11 +28,15 @@ function countDone(listaTareas) {
 
 
 function createTask(texto) {
-    let tarea = texto.match(/@\w*/g)
-    if (tarea != undefined && tarea.length != 0) {
-        tarea = tarea.map(e => e.substring(1));
+    const tarea = {};
+    const idx = texto.indexOf("@");
+    if (idx == -1) {
+        tarea.texto = texto;
+        return { tarea };
+    } else {
+        tarea.texto = texto.substring(0, idx).trim();
+        tarea.etiquetas = texto.substring(idx).split(" ").map((s) => s.replace("@", ""));
     }
-    texto = texto.replace(/@\w*/g, "").trim();
 
     return { tarea }
 }
