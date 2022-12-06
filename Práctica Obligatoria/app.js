@@ -1,6 +1,7 @@
 // app.js
 const config = require("./routes/config");
 const DAOTasks = require("./routes/DAOTasks");
+const DAOUsers = require("./routes/DAOUsers");
 const utils = require("./routes/utils");
 const path = require("path");
 const mysql = require("mysql");
@@ -42,10 +43,10 @@ app.get("/", function (request, response) {
 app.get("/tasks", function (request, response) {
     daoT.getAllTasks("usuario@ucm.es", function (err, result) {
         if (err) {
-            console.log("Error en leer tareas");
+            console.log("Error en leer avisos");
         } else {
             response.render("tasks", { tasks: result });
-            console.log("Exito en leer tareas");
+            console.log("Exito en leer avisos");
         }
     });
 
