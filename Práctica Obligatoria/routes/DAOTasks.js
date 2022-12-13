@@ -62,7 +62,6 @@ class DAOTasks {
                                 return callback(error);
                             }
                         });
-
                     }
                 });
             }

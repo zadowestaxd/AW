@@ -17,6 +17,9 @@ const pool = mysql.createPool(config.mysqlConfig);
 // Crear una instancia de DAOTasks
 const daoT = new DAOTasks(pool);
 
+// Crear una instancia de DAOUsers
+const daoU = new DAOUsers(pool);
+
 // Configurar ejs como motor de plantillas
 app.set("view engine", "ejs");
 
@@ -39,7 +42,9 @@ app.get("/", function (request, response) {
     response.status(200);
     response.render("/tasks");
 });
-
+/*aqui iria primero el login del usuario y de lograrse
+se recogerian todos sus avisos para mostrarlos, si no 
+nos mantendremos en LogIn/SingUp*/
 app.get("/tasks", function (request, response) {
     daoT.getAllTasks("usuario@ucm.es", function (err, result) {
         if (err) {

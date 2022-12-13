@@ -51,7 +51,7 @@ class DAOUsers {
                                 console.log(error);
                                 return callback(error);
                             }
-                            else callback();
+                            else return callback();
                         });
 
                     }
