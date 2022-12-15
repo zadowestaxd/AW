@@ -8,11 +8,15 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/tasksScreen.css">
 	<link rel="stylesheet" type="text/css" media="print" href="css/tasksPrint.css">
 	<script src="/Práctica Voluntaria/PV4/routes/DAOTasks.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<title>Aplicaciones Web</title>
 </head>
 <meta charset="utf-8" />
 <link rel="icon" type="image/x-ico"
 	href="https://www.learningcontainer.com/wp-content/uploads/2020/09/Sample-ICO-file-Download-for-testing.ico">
+<h12>UCM-CAU</h12>
 </head>
 
 <body>
@@ -33,40 +37,51 @@
 				<button class="boton1" onclick="window.location.href='https://google.com';"> Desconectar</button>
 			</div>
 		</div>
+		<div>
+			<form class="search_form" action="/search_form" method="POST">
+				<input class="search_form" type="text" name="text" placeholder="Buscar" required>
+				<input class="task_button search_form" type="submit" value="BUSCAR">
+			</form>
+		</div>
+		<h2>Centro de atención al usuario</h2>
 	</div>
 	<main>
-		<% tasks.forEach(function(task, i) { %>
-			<% if (!task.done) { %>
-				<div id="<%=i%>" class="task">
-					<h3>
-						<%= task.text %>
-					</h3>
-					<% task.tags.forEach(function(tag, i) { %>
-						<span class="tag">
-							<%= tag %>
-						</span>
-						<% }); %>
-							<a href="finish/<%=i%>" class="task_button">MARCAR FINALIZADA</a>
-							<% } else { %>
-								<div id="<%=i%>" class="task done">
-									<h3 class="done">
-										<%= task.text %>
-									</h3>
-									<% } %>
-								</div>
-				</div>
-				<% }); %>
-
-					<div id="s1" class="add">
-						<form class="add_form" action="/addTask" method="POST">
-							<input class="add_text" type="text" name="text" placeholder="Introducir nombre tarea"
-								required>
-							<input class="task_button add_button" type="submit" value="AÑADIR">
-						</form>
-					</div>
-					<div id="b1" class="delete">
-						<a href="deleteCompleted/" class="task_button">ELIMINAR TAREAS COMPLETADAS</a>
-					</div>
+		<div class="own">
+			<table class="table table-bordered table-responsive">
+				<thead>
+					<tr>
+						<th scope="col">Fecha</th>
+						<th scope="col">Texto</th>
+						<th scope="col">Tipo</th>
+						<th scope="col">Técnico</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1</th>
+						<td>Mark</td>
+						<td>Otto</td>
+						<td>@mdo</td>
+					</tr>
+					<tr>
+						<th scope="row">2</th>
+						<td>Jacob</td>
+						<td>Thornton</td>
+						<td>@fat</td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td colspan="2">Larry the Bird</td>
+						<td>@twitter</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="s1" class="add">
+			<form class="add_form" action="/addTask" method="POST">
+				<input class="task_button add_button" type="submit" value="NUEVO AVISO">
+			</form>
+		</div>
 	</main>
 </body>
 

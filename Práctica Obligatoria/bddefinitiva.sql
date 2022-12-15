@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2022 a las 17:01:02
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,6 +20,7 @@ CREATE TABLE `UCM_AW_CAU_AVI_Avisos` (
   `idUser` int(11) NOT NULL,
   `idAviso` int(11) NOT NULL,
   `texto` varchar(100) NOT NULL,
+  `prioridad` int(11) NOT NULL,
   `done` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -35,9 +28,9 @@ CREATE TABLE `UCM_AW_CAU_AVI_Avisos` (
 -- Volcado de datos para la tabla `UCM_AW_CAU_AVI_Avisos`
 --
 
-INSERT INTO `UCM_AW_CAU_AVI_Avisos` (`idUser`, `idTarea`, `hecho`) VALUES
-(5, 10, 0),
-(5, 20, 0);
+INSERT INTO `UCM_AW_CAU_AVI_Avisos` (`idUser`, `idAviso`, `done`, `texto`,`prioridad`) VALUES
+(5, 10, 0,'hola, buenas, soy sumorenito18 y aparte de ser cani soy el soy el niño al que tu quiereh',2),
+(5, 20, 0, 'habia una vez un barquito chiquitito que no sabia que no podia que no sabia navegar',0);
 
 -- --------------------------------------------------------
 
@@ -48,7 +41,7 @@ INSERT INTO `UCM_AW_CAU_AVI_Avisos` (`idUser`, `idTarea`, `hecho`) VALUES
 CREATE TABLE `UCM_AW_CAU_USU_Usuarios` (
   `idUser` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  'numEmpleado' int(11),
+  `numEmpleado` int(11),
   `perfil` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
@@ -59,8 +52,9 @@ CREATE TABLE `UCM_AW_CAU_USU_Usuarios` (
 -- Volcado de datos para la tabla `UCM_AW_CAU_USU_Usuarios`
 --
 
-INSERT INTO `UCM_AW_CAU_USU_Usuarios` (`idUser`, `email`, `password`, `img`) VALUES
-(5, 'usuario@ucm.es', '1234567', NULL);
+INSERT INTO `UCM_AW_CAU_USU_Usuarios` (`idUser`, `email`, `password`, `img`, `perfil`, `numEmpleado`,`name`) VALUES
+(5, 'usuario@ucm.es', '1234567', NULL, 0, NULL, 'Eve'),
+(3, 'tecnicoCau@ucm.es', '1746263', NULL, 1, 1, 'Alfonso');
 
 
 --
@@ -68,9 +62,7 @@ INSERT INTO `UCM_AW_CAU_USU_Usuarios` (`idUser`, `email`, `password`, `img`) VAL
 -- Indices de la tabla `UCM_AW_CAU_AVI_Avisos`
 --
 ALTER TABLE `UCM_AW_CAU_AVI_Avisos`
-  ADD PRIMARY KEY (`idTarea`,`idUser`),
-  ADD KEY `idUser` (`idUser`),
-  ADD KEY `idTarea` (`idTarea`);
+  ADD PRIMARY KEY (`idAviso`);
 
 --
 -- Indices de la tabla `UCM_AW_CAU_USU_Usuarios`
@@ -85,15 +77,11 @@ ALTER TABLE `UCM_AW_CAU_USU_Usuarios`
 ALTER TABLE `UCM_AW_CAU_USU_Usuarios`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
+ALTER TABLE `UCM_AW_CAU_AVI_Avisos`
+  MODIFY `idAviso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- R
 -- Filtros para la tabla `UCM_AW_CAU_AVI_Avisos`
 --
-ALTER TABLE `UCM_AW_CAU_AVI_Avisos`
-  ADD CONSTRAINT `UCM_AW_CAU_AVI_Avisos_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `UCM_AW_CAU_USU_Usuarios` (`idUser`),
-  ADD CONSTRAINT `UCM_AW_CAU_AVI_Avisos_ibfk_2` FOREIGN KEY (`idTarea`) REFERENCES `tareas` (`idTarea`);
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+COMMIT;

@@ -3,31 +3,28 @@
 const mysql = require("mysql");
 
 
+
 class DAOUsers {
     constructor(pool) {
         this.pool = pool;
     }
-    getAthenticatedUser(email, password, callback) {
 
-        this.pool.getConnection(function (error, connection) {
-            if (error) {
-                console.log(`error: conexion con base de datos fallida: ${error.message}`);
-                callback(error);
+    getAthenticatedUser(email, password, callback) {
+        this.pool.getConnection(function (err, con) {
+            if (err) {
+                console.error(`error: conexion con base de datos fallida:`);
+                return callback();
             } else {
-                const sql = `SELECT UCM_AW_CAU_USU_Usuarios.idUser FROM UCM_AW_CAU_USU_Usuarios WHERE email = ${email} AND password = ${password}`;
-                connection.query(sql, [email, password], function (err, resultado) {
-                    connection.release();
-                    if (err) {
-                        return callback(err);
-                    } else {
-                        callback(null, resultado);
-                    }
+                const sql = `SELECT * FROM UCM_AW_CAU_USU_Usuarios WHERE email = '${email}' AND password = '${password}'`;
+                con.query(sql, [email, password], function (err, res) {
+                    con.release();
+                    return callback(res);
                 });
             }
         });
     }
 
-    insertUser(email, password, callback) {
+    insertUser(user, callback) {
         this.pool.getConnection(function (error, connection) {
 
             if (error) {
@@ -36,22 +33,21 @@ class DAOUsers {
                 callback(error);
             } else {
                 const sql1 = "SELECT idUser FROM UCM_AW_CAU_USU_Usuarios WHERE email = ?"
-                connection.query(sql1, email, function (error, result) {
-                    console.log(result);
+                connection.query(sql1, user.mail, function (error, result) {
                     if (error) {
                         connection.release();
                         console.log(error);
                         return callback(error);
                     }
-                    else if (result.lenght == 0) {
-                        const sql = `INSERT INTO UCM_AW_CAU_USU_Usuarios(email, password) VALUES("${email}","${password}")`;
-                        connection.query(sql, [email, password], function (error) {
+                    else if (!result[0]) {
+                        const sql = `INSERT INTO UCM_AW_CAU_USU_Usuarios(email, password, name, numEmpleado, perfil) VALUES('${user.mail}','${user.pwd}','${user.usr}','${user.numero}','${user.tipo}')`;
+                        connection.query(sql, user, function (error, res) {
                             if (error) {
                                 connection.release();
                                 console.log(error);
-                                return callback(error);
+                                return callback();
                             }
-                            else return callback();
+                            else return callback(res);
                         });
 
                     }
@@ -65,4 +61,4 @@ class DAOUsers {
     }
 }
 
-module.exports = DAOUsers;
+module.exports = { DAOUsers };

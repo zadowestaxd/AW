@@ -1,13 +1,88 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/tasksScreen.css">
-    <link rel="stylesheet" type="text/css" media="print" href="css/tasksPrint.css">
-    <script src="/Práctica Voluntaria/PV4/routes/DAOUsers.js" type="text/javascript"></script>
-    <title>Aplicaciones Web</title>
+    <title>Login 08</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="css/login.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
-<meta charset="utf-8" />
+
+<body>
+    </style>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">UCM - CAU</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="login-wrap p-4 p-md-5">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-user-o"></span>
+                        </div>
+                        <h3 class="text-center mb-4">Centro de Atención al Usuario</h3>
+                        <form method="POST" action="/logOn" class="login-form">
+                            <div class="form-group">
+                                <input type="text" id="username" name="usr" class="form-control rounded-left"
+                                    placeholder="Username" required>
+                            </div>
+                            <div class="form-group d-flex">
+                                <input type="password" id="password" name="pwd" class="form-control rounded-left"
+                                    placeholder="Password" required>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50 text-md-right">
+                                    <a href="http://localhost:3000/signUp">Crear cuenta</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="botonEnviar" class="btn btn-primary rounded submit p-3 px-5">
+                                </input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function validar() {
+            // Cada vez que se pulse el botón de 'Enviar'
+            // $("#botonEnviar").on("click", function () {
+            // Obtener el valor contenido en el cuadro de texto
+
+            //let email = $("#cuadroTexto").val();
+            //let pwd = $("#password").val();
+            // Realizar la petición al servidor
+            let user = $("#username").val();
+            let password = $("#password").val();
+
+            console.log(user);
+            console.log(password);
+
+            const data = {
+                usr: user,
+                pwd: password
+            }
+
+            console.log(data);
+            return data;
+            //});
+        };
+    </script>
+
+
+</body>
+
+</html>
