@@ -4,57 +4,53 @@
 <head>
 	<meta charset="utf-8">
 	<title>Registration Form </title>
-	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!-- Font-->
-	<!-- Main Style Css -->
 	<link rel="stylesheet" href="css/signUp.css" />
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="form-v9">
 	<div class="page-content">
 		<div class="form-v9-content"
 			style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Falchetron.com%2Fcdn%2Fcomplutense-university-of-madrid-787dbd60-6073-4fac-b80e-ec22e3b7aed-resize-750.jpg&f=1&nofb=1&ipt=7d575cc585e1a9dec9fc7b31bb3e0173b47c833e56bbb5cb4f58b3729a6efffe&ipo=images')">
-			<form class="form-detail" action="/register" method="POST">
+			<form class="form-detail" action="#" method="post">
 				<h2>Centro de Atención al Usuario</h2>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" id="name" name="name" id="full-name" class="input-text"
+						<input type="text" name="full-name" id="full-name" class="input-text"
 							placeholder="Nombre para mostrar" required>
 					</div>
 					<div class="form-row">
-						<input type="text" id="email" name="usr" id="your-email" class="input-text" placeholder="Correo"
-							required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+						<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Correo"
+							style="text-decoration-color: aliceblue;" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 					</div>
 				</div>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="password" id="password" name="pwd" id="password" class="input-text"
-							placeholder="Contraseña" required>
+						<input type="password" name="password" id="password" class="input-text" placeholder="Contraseña"
+							required>
 					</div>
 					<div class="form-row">
-						<input type="password" id="passwordConfirm" name="pwdC" id="comfirm-password" class="input-text"
+						<input type="password" name="comfirm-password" id="comfirm-password" class="input-text"
 							placeholder="Comfirmar Contraseña" required>
 					</div>
 				</div>
 				<div class="form-row-total">
 					<div class="form-row">
-						<select class="form-select" id="tipo" namme="tipo" aria-label="Default select example">
+						<select class="form-select" aria-label="Default select example">
 							<option selected></option>
-							<option value="0">Alumno</option>
-							<option value="1">Personal de Administración y Servicios (PAS)</option>
+							<option value="1">Alumno</option>
+							<option value="3">Personal de Administración y Servicios (PAS)</option>
 							<option value="2">Personal Docente e Investigador (PDI)</option>
-							<option value="3">Antiguo Alumno</option>
+							<option value="4">Antiguo Alumno</option>
 						</select>
 					</div>
 					<div class="form-employer">
-						<input type="employernumber" id="number" name="numero" id="comfirm-employernumber"
+						<input type="employernumber" name="employernumber" id="comfirm-employernumber"
 							class="input-text" placeholder="Nº Empleado" required>
 					</div>
 					<div class="form-small-box">
 						<div class="form-check">
-							<input type="checkbox" value="1" id="flexCheckDefault">
+							<input type="checkbox" value="2" name="checkbox" id="flexCheckDefault">
 							<label class="form-check-label" for="flexCheckDefault">
 								Técnico
 							</label>
@@ -65,16 +61,16 @@
 				<input class="fileButton" id="fileButton" name="myfile" type="file" />
 				<div class="form-row-last">
 					<div class="form-row">
-						<input type="submit" id="botonEnviar" name="register" class="register"
-							value="Crear nueva cuenta">
+						<input type="submit" name="register" class="register" value="Crear nueva cuenta">
+
 					</div>
 					<div class="form-row">
-						<a href="/logIn"> iniciar sesion</a>
+						<a href="/logIn"> Iniciar Sesion </a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>

@@ -104,7 +104,7 @@ app.post("/logOn", (req, res) => {
         if (data[0]) {
             req.session.current = data[0].email;
             req.session.tipo = data[0].perfil;
-            res.redirect("/logOut");
+            res.redirect("/tasks");
 
         }
         else {
