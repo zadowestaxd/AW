@@ -14,7 +14,7 @@ class DAOTasks {
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 return callback(error);
             } else {
-                const sql = "SELECT UCM_AW_CAU_AVI_Avisos.idAviso, UCM_AW_CAU_AVI_Avisos.texto, UCM_AW_CAU_AVI_Avisos.done FROM UCM_AW_CAU_AVI_Avisos JOIN UCM_AW_CAU_USU_Usuarios ON UCM_AW_CAU_USU_Usuarios.idUser = UCM_AW_CAU_AVI_Avisos.idUser WHERE email = ? ";
+                const sql = "SELECT * FROM UCM_AW_CAU_AVI_Avisos JOIN UCM_AW_CAU_USU_Usuarios ON UCM_AW_CAU_USU_Usuarios.idUser = UCM_AW_CAU_AVI_Avisos.idUser WHERE email = ? ";
                 connection.query(sql, [email], function (err, resultado) {
                     connection.release();
                     if (err) {
@@ -26,6 +26,8 @@ class DAOTasks {
                                 id: item.idAviso,
                                 text: item.texto,
                                 done: item.done,
+                                prioridad: item.prioridad,
+                                idUser: item.idUser
                             };
 
                         }
