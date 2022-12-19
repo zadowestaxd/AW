@@ -126,6 +126,19 @@ class DAOTasks {
             }
         });
     }
+
+    searchByText(text, callback) {
+        this.pool.getConnection((error, result) => {
+            if (error) {
+                conection.release();
+                return callback(error);
+            }
+            else {
+                const sql = "";
+            }
+        });
+    }
+
 }
 
 module.exports = DAOTasks;

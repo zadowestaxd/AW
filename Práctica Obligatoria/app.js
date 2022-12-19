@@ -133,6 +133,10 @@ app.post("/register", (req, res) => {
     });
 });
 
+app.post("/search", (req, res) => {
+
+});
+
 app.post("/addTask", function (request, response) {
     let task = utils.createTask(request.body.text);
 

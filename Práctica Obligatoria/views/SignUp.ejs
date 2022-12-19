@@ -12,16 +12,16 @@
 	<div class="page-content">
 		<div class="form-v9-content"
 			style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Falchetron.com%2Fcdn%2Fcomplutense-university-of-madrid-787dbd60-6073-4fac-b80e-ec22e3b7aed-resize-750.jpg&f=1&nofb=1&ipt=7d575cc585e1a9dec9fc7b31bb3e0173b47c833e56bbb5cb4f58b3729a6efffe&ipo=images')">
-			<form class="form-detail" action="#" method="post">
+			<form class="form-detail" action="/register" method="post">
 				<h2>Centro de Atención al Usuario</h2>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" name="full-name" id="full-name" class="input-text"
+						<input type="text" name="name" id="full-name" class="input-text"
 							placeholder="Nombre para mostrar" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Correo"
-							style="text-decoration-color: aliceblue;" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+						<input type="text" name="your-email" id="email" class="input-text" placeholder="Correo" required
+							pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 					</div>
 				</div>
 				<div class="form-row-total">
@@ -30,18 +30,18 @@
 							required>
 					</div>
 					<div class="form-row">
-						<input type="password" name="comfirm-password" id="comfirm-password" class="input-text"
+						<input type="password" name="cPassword" id="comfirm-password" class="input-text"
 							placeholder="Comfirmar Contraseña" required>
 					</div>
 				</div>
 				<div class="form-row-total">
 					<div class="form-row">
-						<select class="form-select" aria-label="Default select example">
+						<select class="form-select" aria-label="Default select example" name="tipo">
 							<option selected></option>
-							<option value="1">Alumno</option>
-							<option value="3">Personal de Administración y Servicios (PAS)</option>
+							<option value="0">Alumno</option>
+							<option value="1">Personal de Administración y Servicios (PAS)</option>
 							<option value="2">Personal Docente e Investigador (PDI)</option>
-							<option value="4">Antiguo Alumno</option>
+							<option value="3">Antiguo Alumno</option>
 						</select>
 					</div>
 					<div class="form-employer">
