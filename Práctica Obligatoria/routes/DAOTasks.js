@@ -128,18 +128,30 @@ class DAOTasks {
     }
 
     searchByText(text, callback) {
-        this.pool.getConnection((error, result) => {
+        this.pool.getConnection((error) => {
             if (error) {
                 conection.release();
                 return callback(error);
             }
             else {
-                const sql = "";
+                const sql = "SELECT idUser FROM UCM_AW_CAU_AVI_Tareas WHERE text LIKE '%text%";
+                connection.query(sql, text, function (error, result) {
+                    if (error) {
+                        connection.release();
+                        callback(error);
+                        return callback(result);
+                    }
+                });
+
             }
         });
     }
 
+
+
 }
+
+
 
 module.exports = DAOTasks;
 
