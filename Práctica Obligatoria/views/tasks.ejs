@@ -81,13 +81,67 @@
 
 
 		<!-- Contenido de la ventana modal -->
-		<button id="open-modal-btn">Abrir ventana modal</button>
+		<button id="open-modal-btn">Nuevo Aviso</button>
 
 		<!-- Ventana modal -->
 		<div id="modal" class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-				<p>Añadir tarea</p>
+				<div class="container">
+					<button class="btn red ">Sugerencias</button>
+					<button class="btn green">Incidencias</button>
+					<!-- HTML del botón modal -->
+					<button type="button" class="btn btn-primary" data-toggle="modal"
+						data-target="#felicitacionesModal">
+						Felicitaciones
+					</button>
+					<!-- HTML del modal -->
+					<div class="modal fade" id="felicitacionesModal" tabindex="-1" role="dialog"
+						aria-labelledby="felicitacionesModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="felicitacionesModalLabel">Felicitaciones</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<label for="opcionesSelect">Selecciona una opción:</label>
+										<select class="form-control" id="opcionesSelect">
+											<option value="Archivo Universitario">Archivo Universitario</option>
+											<option value="Asesoría Jurídica">Asesoría Jurídica</option>
+											<option value="Biblioteca">Biblioteca</option>
+											<option value="Centro de Información">Centro de Información</option>
+											<option value="Departamentos docentes">Departamentos docentes</option>
+											<option value="Inspección de Servicios">Inspección de Servicios</option>
+											<option value="Oficina de Gestión de Infraestructuras y Mantenimiento">
+												Oficina de Gestión de Infraestructuras y Mantenimiento</option>
+											<option value="Servicio de Administración">Servicio de Administración
+											</option>
+											<option value="Servicios Informáticos">Servicios Informáticos</option>
+											<option value="Servicio de Documentación">Servicio de Documentación</option>
+											<option value="Servicio de Imprenta">Servicio de Imprenta</option>
+											<option value="Servicio de Cafetería">Servicio de Cafetería</option>
+											<option value="Toda la Universidad">Toda la Universidad</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="felicitacionesTextarea">Escribe tu felicitación:</label>
+										<textarea class="form-control" id="felicitacionesTextarea" rows="3"></textarea>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									<button type="button" class="btn btn-primary">Enviar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
 			</div>
 		</div>
 

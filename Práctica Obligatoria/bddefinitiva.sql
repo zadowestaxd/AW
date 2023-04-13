@@ -19,7 +19,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `UCM_AW_CAU_AVI_Avisos` (
   `idUser` int(11) NOT NULL,
   `idAviso` int(11) NOT NULL,
+  `via`varchar(100) NOT NULL,
+  `tipo` int(10) NOT NULL,
+  `categoria` varchar(100) NOT NULL,
+  `date`date NOT NULL,
   `texto` varchar(100) NOT NULL,
+  `comentario` varchar(100) NOT NULL,
   `prioridad` int(11) NOT NULL,
   `done` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -28,8 +33,8 @@ CREATE TABLE `UCM_AW_CAU_AVI_Avisos` (
 -- Volcado de datos para la tabla `UCM_AW_CAU_AVI_Avisos`
 --
 
-INSERT INTO `UCM_AW_CAU_AVI_Avisos` (`idUser`, `idAviso`, `done`, `texto`,`prioridad`) VALUES
-(5, 10, 0,'hola, buenas, soy sumorenito18 y aparte de ser cani soy el soy el niño al que tu quiereh',2),
+INSERT INTO `UCM_AW_CAU_AVI_Avisos` (`idUser`, `idAviso`, `done`, `texto`,`prioridad`, `via`, `tipo`, `categoria`, `date`, `comentario`) VALUES
+(5, 10, 0,'hola, buenas, soy sumorenito19 y aparte de ser cani soy el soy el ninio al que tu quiereh', 2, `correo electronico`, `incidencia`, `registro electronico`, `2999-01-02`, `eso no era filosofia?`),
 (5, 20, 0, 'habia una vez un barquito chiquitito que no sabia que no podia que no sabia navegar',0);
 
 -- --------------------------------------------------------
