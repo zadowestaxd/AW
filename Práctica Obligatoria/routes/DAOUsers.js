@@ -26,13 +26,14 @@ class DAOUsers {
 
     insertUser(user, callback) {
         this.pool.getConnection(function (error, connection) {
+
             if (error) {
                 connection.release();
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
                 callback(error);
             } else {
-                const sql1 = `SELECT idUser FROM UCM_AW_CAU_USU_Usuarios WHERE email = '${user.email}'`
-                connection.query(sql1, user.email, function (error, result) {
+                const sql1 = "SELECT idUser FROM UCM_AW_CAU_USU_Usuarios WHERE email = ?"
+                connection.query(sql1, user.mail, function (error, result) {
                     if (error) {
                         connection.release();
                         console.log(error);
@@ -55,26 +56,6 @@ class DAOUsers {
                         return callback();
                     }
                 });
-            }
-        });
-    }
-
-    searchByText(text, callback) {
-        this.pool.getConnection((error) => {
-            if (error) {
-                conection.release();
-                return callback(error);
-            }
-            else {
-                const sql = "SELECT idUser FROM UCM_AW_CAU_USU_Usuarios WHERE name LIKE '%text%";
-                connection.query(sql, text, function (error, result) {
-                    if (error) {
-                        connection.release();
-                        callback(error);
-                        return callback(null, result);
-                    }
-                });
-
             }
         });
     }

@@ -1,4 +1,3 @@
-// app.js
 const config = require("./routes/config");
 const DAOTasks = require("./routes/DAOTasks");
 const { DAOUsers } = require("./routes/DAOUsers");
@@ -127,18 +126,13 @@ app.post("/register", (req, res) => {
     daoU.insertUser(req.body, (data) => {
         if (data.insertId) {
             console.log("tu usrId es " + data.insertId);
-            res.redirect("/logIn");
         }
         else
             res.render("signUp");
     });
 });
 
-app.post("/searchTask", (req, res) => {
-
-});
-
-app.post("/searchUser", (req, res) => {
+app.post("/search", (req, res) => {
 
 });
 
