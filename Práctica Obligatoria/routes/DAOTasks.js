@@ -129,14 +129,23 @@ class DAOTasks {
     }
 
     searchByText(text, callback) {
-        this.pool.getConnection((error, result) => {
+        this.pool.getConnection(function (error, connection) {
             if (error) {
-                conection.release();
+                connection.release();
                 console.log(`error: conexion con base de datos fallida: ${error.message}`);
-                return callback(error);
+                return callback();
             }
             else {
-                const sql = "SELECT * FROM UCM_AW_CAU_USU_Avisos WHERE text = ?";
+                const sql = `SELECT * FROM UCM_AW_CAU_USU_Avisos WHERE text = ${text}`;
+                connection.query(sql, text, function (error, result) {
+                    if (error) {
+                        connection.release();
+                        return callback();
+                    }
+                    else {
+                        return callback(result);
+                    }
+                });
             }
         });
     }

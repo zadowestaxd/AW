@@ -12,13 +12,15 @@ class DAOUsers {
     getAthenticatedUser(email, password, callback) {
         this.pool.getConnection(function (err, con) {
             if (err) {
+                con.release();
                 console.error(`error: conexion con base de datos fallida:`);
                 return callback();
             } else {
                 const sql = `SELECT * FROM UCM_AW_CAU_USU_Usuarios WHERE email = '${email}' AND password = '${password}'`;
                 con.query(sql, [email, password], function (err, res) {
                     con.release();
-                    return callback(res);
+                    console.log(res.body);
+                    return callback(res.body);
                 });
             }
         });

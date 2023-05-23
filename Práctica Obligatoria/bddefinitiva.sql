@@ -34,8 +34,8 @@ CREATE TABLE `UCM_AW_CAU_AVI_Avisos` (
 --
 
 INSERT INTO `UCM_AW_CAU_AVI_Avisos` (`idUser`, `idAviso`, `done`, `texto`,`prioridad`, `via`, `tipo`, `categoria`, `date`, `comentario`) VALUES
-(5, 10, 0,'hola, buenas, soy sumorenito19 y aparte de ser cani soy el soy el ninio al que tu quiereh', 2, `correo electronico`, `incidencia`, `registro electronico`, `2999-01-02`, `eso no era filosofia?`),
-(5, 20, 0, 'habia una vez un barquito chiquitito que no sabia que no podia que no sabia navegar',0);
+(5, 10, 0,'hola, buenas, soy sumorenito19 y aparte de ser cani soy el soy el ninio al que tu quiereh', 2, `correo electronico`, `incidencia`, `registro electronico`, `2999-01-02`, `eso era una incidencia`),
+(5, 20, 0, 'habia una vez un barquito chiquitito que no sabia que no podia que no sabia navegar', 0, `telefono`, `felicitacion`, `google meet`, `2020-10-11`, `eso era una felicitacion`);
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE `UCM_AW_CAU_USU_Usuarios` (
   `password` varchar(100) NOT NULL,
   `img` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+/*perfiles {0:alumno 1:tecnico 2:pas 3:aa}*/
 --
 -- Volcado de datos para la tabla `UCM_AW_CAU_USU_Usuarios`
 --

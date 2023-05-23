@@ -1,3 +1,4 @@
+"use strict"
 const config = require("./routes/config");
 const DAOTasks = require("./routes/DAOTasks");
 const { DAOUsers } = require("./routes/DAOUsers");
@@ -13,6 +14,8 @@ const eSession = require("express-session");
 const esqlSession = require("express-mysql-session")
 const sqlConfig = config.mysqlConfig;
 const MySQLStore = esqlSession(eSession);
+
+const session = [];
 
 const sessionStore = new MySQLStore({
 
@@ -51,7 +54,7 @@ const middlewareSession = eSession({
 
     resave: true,
 
-    secret: "secretito",
+    secret: "secreto",
 
     store: sessionStore
 
@@ -64,7 +67,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /*
 let listaTareas = [
-    { text: "Preparar práctica AW", tags: ["AW", "practica"] },
+    { text: "Preparar practica AW", tags: ["AW", "practica"] },
     { text: "Mirar fechas congreso", done: true, tags: [] },
     { text: "Ir al supermercado", tags: ["personal"] },
     { text: "Mudanza", done: false, tags: ["personal"] },
@@ -76,16 +79,21 @@ app.get("/", function (request, response) {
     response.redirect("/logIn");
 
 });
+
 /*aqui iria primero el login del usuario y de lograrse
 se recogerian todos sus avisos para mostrarlos, si no 
 nos mantendremos en LogIn/SingUp*/
 app.get("/tasks", function (request, response) {
     daoT.getAllTasks("usuario@ucm.es", function (err, result) {
+        result.forEach(function (task) {
+            task.user = session.current;
+            task.type = session.tipo;
+        });
         if (err) {
             console.log("Error en leer avisos", err);
         } else {
-            response.render("tasks", { tasks: result });
             console.log("Exito en leer avisos");
+            response.render("tasks", { tasks: result });
         }
     });
 
@@ -100,9 +108,10 @@ app.get("/logIn", (req, res) => {
 
 app.post("/logOn", (req, res) => {
     daoU.getAthenticatedUser(req.body.usr, req.body.pwd, (data) => {
-        if (data[0]) {
-            req.session.current = data[0].email;
-            req.session.tipo = data[0].perfil;
+        console.log(data);
+        if (data) {
+            session.current = data[0].email;
+            session.tipo = data[0].perfil;
             res.redirect("/tasks");
 
         }
@@ -133,7 +142,13 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/search", (req, res) => {
-
+    daoT.searchByText(req.text, function (result) {
+        if (!result) {
+            console.log("sin resultados");
+        } else {
+            response.render("tasks", { task: result })
+        }
+    });
 });
 
 app.post("/addTask", function (request, response) {

@@ -88,10 +88,152 @@
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<div class="container">
-					<button class="btn red ">Sugerencias</button>
-					<button class="btn green">Incidencias</button>
+					<button type="button" class="btn btn-primary2" data-toggle="modal" data-target="#sugerenciasModal">
+						Sugerencias
+					</button>
+					<!-- HTML del modal -->
+					<div class="modal fade" id="sugerenciasModal" tabindex="-1" role="dialog"
+						aria-labelledby="sugerenciasModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header-sugerencias">
+									<h5 class="modal-title" id="sugerenciasModalLabel">Sugerencias</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<label for="opcionesSelect">Selecciona una opción:</label>
+										<select class="form-control" id="opcionesSelect">
+											<% if (!tasks.type !=0) { %>
+												<option value="Certificado digital de personal física">Certificado
+													digital de personal física</option>
+												<% } %>
+													<option value="Certificado electrónico de empleado público">
+														Certificado electrónico de empleado público</option>
+													<option value="Registro electrónico">Registro electrónico</option>
+													<option value="Sede electrónica">Sede electrónica</option>
+													<option value="Portafirmas">Portafirmas</option>
+													<option value="Correo electrónico">Correo electrónico</option>
+													<option value="Google Meet">Google Meet</option>
+													<option value="Cuenta de Alumno">Cuenta de Alumno</option>
+													<option value="Cuenta de personal">Cuenta de personal</option>
+													<option value="Cuenta genérica">Cuenta genérica </option>
+													<option value="Cuenta as la Red SARA">Cuenta as la Red SARA</option>
+													<option value="Conexión por cable en despachos">Conexión por cable
+														en despachos</option>
+													<option value="Cortafuegos corporativo">Cortafuegos corporativo
+													</option>
+													<option value="Resolución de nombres de dominio (DNS)">Resolución de
+														nombres de dominio (DNS)</option>
+													<option value="VPN Acceso remoto">VPN Acceso remoto</option>
+													<option value="Wifi Eduroam (ssid: eduroam)">Wifi Eduroam (ssid:
+														eduroam)</option>
+													<option value="Wifi para visitantes (ssid: UCM-Visitantes)">Wifi
+														para visitantes (ssid: UCM-Visitantes)</option>
+													<option value="Aula Virtual">Aula Virtual</option>
+													<option value="Blackboard Collaborate">Blackboard Collaborate
+													</option>
+													<option value="Listados de clase">Listados de clase</option>
+													<option value="Moodle: Aula Global">Moodle: Aula Global</option>
+													<option value="Plataforma de cursos online Privados">Plataforma de
+														cursos online Privados</option>
+													<option value="Analítica Web">Analítica Web</option>
+													<option value="Emisión de certificados SSL">Emisión de certificados
+														SSL</option>
+													<option value="Hosting: alojamiento de páginas web">Hosting:
+														alojamiento de páginas web</option>
+													<option value="Portal de eventos">Portal de eventos</option>
+													<option value="Redirecciones web">Redirecciones web</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="sugerenciasTextarea">Escribe tu Sugerencia:</label>
+										<textarea class="form-control" id="sugerenciasTextarea" rows="3"></textarea>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									<button type="button" class="btn btn-primary">Enviar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary3" data-toggle="modal" data-target="#incidenciasModal">
+						Incidencias
+					</button>
+					<!-- HTML del modal -->
+					<div class="modal fade" id="incidenciasModal" tabindex="-1" role="dialog"
+						aria-labelledby="incidenciasModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header-incidencias">
+									<h5 class="modal-title" id="incidenciasModalLabel">Incidencias</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<label for="opcionesSelect">Selecciona una opción:</label>
+										<select class="form-control" id="opcionesSelect">
+											<% if (!tasks.type !=0) { %>
+												<option value="Certificado digital de personal física">Certificado
+													digital de personal física</option>
+												<% } %>
+													<option value="Certificado electrónico de empleado público">
+														Certificado electrónico de empleado público</option>
+													<option value="Registro electrónico">Registro electrónico</option>
+													<option value="Sede electrónica">Sede electrónica</option>
+													<option value="Portafirmas">Portafirmas</option>
+													<option value="Correo electrónico">Correo electrónico</option>
+													<option value="Google Meet">Google Meet</option>
+													<option value="Cuenta de Alumno">Cuenta de Alumno</option>
+													<option value="Cuenta de personal">Cuenta de personal</option>
+													<option value="Cuenta genérica">Cuenta genérica </option>
+													<option value="Cuenta as la Red SARA">Cuenta as la Red SARA</option>
+													<option value="Conexión por cable en despachos">Conexión por cable
+														en despachos</option>
+													<option value="Cortafuegos corporativo">Cortafuegos corporativo
+													</option>
+													<option value="Resolución de nombres de dominio (DNS)">Resolución de
+														nombres de dominio (DNS)</option>
+													<option value="VPN Acceso remoto">VPN Acceso remoto</option>
+													<option value="Wifi Eduroam (ssid: eduroam)">Wifi Eduroam (ssid:
+														eduroam)</option>
+													<option value="Wifi para visitantes (ssid: UCM-Visitantes)">Wifi
+														para visitantes (ssid: UCM-Visitantes)</option>
+													<option value="Aula Virtual">Aula Virtual</option>
+													<option value="Blackboard Collaborate">Blackboard Collaborate
+													</option>
+													<option value="Listados de clase">Listados de clase</option>
+													<option value="Moodle: Aula Global">Moodle: Aula Global</option>
+													<option value="Plataforma de cursos online Privados">Plataforma de
+														cursos online Privados</option>
+													<option value="Analítica Web">Analítica Web</option>
+													<option value="Emisión de certificados SSL">Emisión de certificados
+														SSL</option>
+													<option value="Hosting: alojamiento de páginas web">Hosting:
+														alojamiento de páginas web</option>
+													<option value="Portal de eventos">Portal de eventos</option>
+													<option value="Redirecciones web">Redirecciones web</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="incidenciasTextarea">Escribe tu Incidencia:</label>
+										<textarea class="form-control" id="incidenciasTextarea" rows="3"></textarea>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									<button type="button" class="btn btn-primary">Enviar</button>
+								</div>
+							</div>
+						</div>
+					</div>
 					<!-- HTML del botón modal -->
-					<button type="button" class="btn btn-primary" data-toggle="modal"
+					<button type="button" class="btn btn-primary1" data-toggle="modal"
 						data-target="#felicitacionesModal">
 						Felicitaciones
 					</button>
@@ -100,7 +242,7 @@
 						aria-labelledby="felicitacionesModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
-								<div class="modal-header">
+								<div class="modal-header-felicitaciones">
 									<h5 class="modal-title" id="felicitacionesModalLabel">Felicitaciones</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>

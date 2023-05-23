@@ -530,17 +530,48 @@ h3,
 }
 
 /* Estilos para el botón */
-.btn-primary {
+.btn-primary1 {
   background-color: #28a745;
   border-color: #28a745;
+  color: white;
   border-radius: 10px;
   font-weight: bold;
   transition: all 0.2s ease-in-out;
 }
 
-.btn-primary:hover {
+.btn-primary2 {
+  background-color: #9ea608cf;
+  border-color: #9ea608cf;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary3 {
+  background-color: #f43f12a3;
+  border-color: #f43f12a3;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary1:hover {
   background-color: #12a72da3;
   border-color: #12a72da3;
+  transform: scale(1.05);
+}
+
+.btn-primary2:hover {
+  background-color: #7d7a06;
+  border-color: #7d7a06;
+  transform: scale(1.05);
+}
+
+.btn-primary3:hover {
+  background-color: #b5310f;
+  border-color: #b5310f;
   transform: scale(1.05);
 }
 
@@ -555,8 +586,22 @@ h3,
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 }
 
-.modal-header {
+.modal-header-felicitaciones {
   background-color: #12a72da3;
+  color: #fff;
+  border-radius: 20px 20px 0 0;
+  border-bottom: none;
+}
+
+.modal-header-incidencias {
+  background-color: #f43f12a3;
+  color: #fff;
+  border-radius: 20px 20px 0 0;
+  border-bottom: none;
+}
+
+.modal-header-sugerencias {
+  background-color: #9ea608cf;
   color: #fff;
   border-radius: 20px 20px 0 0;
   border-bottom: none;
@@ -596,6 +641,26 @@ h3,
 
 /* Estilos para la caja de texto */
 #felicitacionesTextarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  padding: 10px;
+}
+
+/* Estilos para la caja de texto */
+#sugerenciasTextarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  padding: 10px;
+}
+
+/* Estilos para la caja de texto */
+#incidenciasTextarea {
   width: 100%;
   height: 150px;
   resize: none;
