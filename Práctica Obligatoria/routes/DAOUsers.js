@@ -19,8 +19,7 @@ class DAOUsers {
                 const sql = `SELECT * FROM UCM_AW_CAU_USU_Usuarios WHERE email = '${email}' AND password = '${password}'`;
                 con.query(sql, [email, password], function (err, res) {
                     con.release();
-                    console.log(res.body);
-                    return callback(res.body);
+                    return callback(res);
                 });
             }
         });

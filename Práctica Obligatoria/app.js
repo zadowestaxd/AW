@@ -108,7 +108,6 @@ app.get("/logIn", (req, res) => {
 
 app.post("/logOn", (req, res) => {
     daoU.getAthenticatedUser(req.body.usr, req.body.pwd, (data) => {
-        console.log(data);
         if (data) {
             session.current = data[0].email;
             session.tipo = data[0].perfil;
@@ -142,11 +141,11 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/search", (req, res) => {
-    daoT.searchByText(req.text, function (result) {
+    daoT.searchByText(req.body.text, function (result) {
         if (!result) {
             console.log("sin resultados");
         } else {
-            response.render("tasks", { task: result })
+            res.render("tasks", { tasks: result })
         }
     });
 });

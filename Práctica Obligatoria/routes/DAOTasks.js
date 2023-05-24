@@ -136,8 +136,9 @@ class DAOTasks {
                 return callback();
             }
             else {
-                const sql = `SELECT * FROM UCM_AW_CAU_USU_Avisos WHERE text = ${text}`;
+                const sql = `SELECT * FROM ucm_aw_cau_avi_Avisos WHERE texto LIKE '%${text}%'`;
                 connection.query(sql, text, function (error, result) {
+                    console.log(JSON.stringify(result));
                     if (error) {
                         connection.release();
                         return callback();
