@@ -85,15 +85,16 @@ se recogerian todos sus avisos para mostrarlos, si no
 nos mantendremos en LogIn/SingUp*/
 app.get("/tasks", function (request, response) {
     daoT.getAllTasks("usuario@ucm.es", function (err, result) {
-        result.forEach(function (task) {
-            task.user = session.current;
-            task.type = session.tipo;
-        });
+        const task = {
+            user: session.current,
+            type: session.tipo,
+        };
+
         if (err) {
             console.log("Error en leer avisos", err);
         } else {
             console.log("Exito en leer avisos");
-            response.render("tasks", { tasks: result });
+            response.render("tasks", { tasks: result, usuario: task });
         }
     });
 
@@ -145,7 +146,11 @@ app.post("/search", (req, res) => {
         if (!result) {
             console.log("sin resultados");
         } else {
-            res.render("tasks", { tasks: result })
+            const task = {
+                user: session.current,
+                type: session.tipo,
+            };
+            res.render("tasks", { tasks: result, usuario: task })
         }
     });
 });
