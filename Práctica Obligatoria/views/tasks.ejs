@@ -57,6 +57,7 @@
 					</tr>
 				</thead>
 				<tbody>
+					<% if(tasks != null) { %>
 					<% tasks=tasks.filter(str=> !null)%>
 					<% tasks.forEach(function(task, i) { %>
 					<% if (!task.done) { %>
@@ -76,6 +77,8 @@
 					</tr>
 					<% } %>
 					<% }); %>
+					<% } %>
+
 				</tbody>
 			</table>
 		</div>

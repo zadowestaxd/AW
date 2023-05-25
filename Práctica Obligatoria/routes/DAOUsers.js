@@ -12,7 +12,6 @@ class DAOUsers {
     getAthenticatedUser(email, password, callback) {
         this.pool.getConnection(function (err, con) {
             if (err) {
-                con.release();
                 console.error(`error: conexion con base de datos fallida:`);
                 return callback();
             } else {
