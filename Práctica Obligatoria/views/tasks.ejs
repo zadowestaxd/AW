@@ -466,6 +466,15 @@
 
 	</main>
 	<script>
+		// Abrir la ventana modal al hacer click en la imagen
+		document.getElementById("imageLink").addEventListener("click", function () {
+			document.getElementById("myModal").style.display = "block";
+		});
+
+		// Cerrar la ventana modal al hacer click en la "X"
+		document.getElementsByClassName("close")[0].addEventListener("click", function () {
+			document.getElementById("myModal").style.display = "none";
+		});
 		// Obtener el botón para abrir la ventana modal
 		var btn = document.getElementById("open-modal-btn");
 
