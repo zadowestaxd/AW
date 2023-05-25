@@ -450,10 +450,12 @@ h3,
   /* color rojizo */
 }
 
+
 /* Estilo para el contenido de la ventana modal */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #050cd2;
   margin: auto;
+  color: black;
   /* centrar horizontalmente */
   margin-top: 15%;
   /* centrar verticalmente */
@@ -581,11 +583,6 @@ h3,
   margin: 1.75rem auto;
 }
 
-.modal-content {
-  border-radius: 20px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-}
-
 .modal-header-felicitaciones {
   background-color: #12a72da3;
   color: #fff;
@@ -667,4 +664,33 @@ h3,
   border-radius: 10px;
   font-size: 1.1rem;
   padding: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos para los títulos */
+h2 {
+  margin-top: 0;
+}
+
+.right-title {
+  float: right;
+}
+
+/* Estilos para la descripción */
+.description-line {
+  margin-top: 0;
+}
+
+/* Estilos para las cajas de texto */
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
 }
