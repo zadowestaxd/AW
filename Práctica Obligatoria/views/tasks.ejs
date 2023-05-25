@@ -54,6 +54,7 @@
 						<th scope="col">Texto</th>
 						<th scope="col">Tipo</th>
 						<th scope="col">Técnico</th>
+						<th scope=""></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -73,6 +74,27 @@
 						</td>
 						<td>
 							<%= task.idUser %>
+						</td>
+						<td>
+							<a href="#" id="imageLink">
+								<img src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-4/128/eye-icon.png"
+									alt="Imagen" height="16" width="16">
+							</a>
+
+							<div id="myModal" class="modal">
+								<div class="modal-content">
+									<span class="close">&times;</span>
+									<h2>Título arriba a la izquierda</h2>
+									<h2 class="right-title">Título arriba a la derecha</h2>
+									<hr>
+									<p>Descripción:</p>
+									<p class="description-line">Línea para la descripción</p>
+									Observaciones
+									<textarea class="observations" placeholder="Observaciones"></textarea>
+									Comentarios del técnico
+									<textarea class="comments" placeholder="Comentarios del técnico"></textarea>
+								</div>
+							</div>
 						</td>
 					</tr>
 					<% } %>
