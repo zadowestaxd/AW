@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/login" method="post">
+            <label for="edad">Selecciona rango de edad:</label>
+            <select class="form-control" name="edad" id="edad" placeholder="edad" required>
+                <option value="manzana">Manzana</option>
+                <option value="naranja">Naranja</option>
+                <option value="platano">Plátano</option>
+            </select>
+            <label for="canal"> El canal por el que les ha conocido:</label>
+            <select class="form-control" name="canal" id="canal" placeholder="canal" required>
+                <option value="manzana">Manzana</option>
+                <option value="naranja">Naranja</option>
+                <option value="platano">Plátano</option>
+            </select>
+            <label for="residencia">Lugar de residencia:</label>
+            <select class="form-control" name="residencia" id="residencia" placeholder="residencia" required>
+                <option value="manzana">Manzana</option>
+                <option value="naranja">Naranja</option>
+                <option value="platano">Plátano</option>
+            </select>
+            <input type="submit" id="botonEnviar" class="btn btn-primary rounded submit p-3 px-5" value="Enviar" />
+        </form>
+    </div>
+</body>

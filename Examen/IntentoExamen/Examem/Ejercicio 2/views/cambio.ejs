@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="/cambio" method="post">
+
+            <input type="text" class="form-control" name="name" id="name" placeholder="nombre" required>
+
+
+            <input type="text" class="form-control" name="oldPassword" id="oldPassword" placeholder="oldPassword"
+                required>
+
+
+            <input type="text" class="form-control" name="password" id="password" placeholder="newPassword" required>
+
+            <input type="submit" id="botonEnviar" class="btn btn-primary rounded submit p-3 px-5" value="Enviar" />
+        </form>
+    </div>
+</body>
