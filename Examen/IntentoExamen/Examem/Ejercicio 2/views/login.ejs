@@ -3,6 +3,25 @@
 
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            display: inline-block;
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -10,23 +29,27 @@
         <form action="/login" method="post">
             <label for="edad">Selecciona rango de edad:</label>
             <select class="form-control" name="edad" id="edad" placeholder="edad" required>
-                <option value="manzana">Manzana</option>
-                <option value="naranja">Naranja</option>
-                <option value="platano">Plátano</option>
+                <option value="menor que 20">menor que 20</option>
+                <option value="20 a 30">20 a 30</option>
+                <option value="mayor que 30">mayor que 30</option>
             </select>
             <label for="canal"> El canal por el que les ha conocido:</label>
             <select class="form-control" name="canal" id="canal" placeholder="canal" required>
-                <option value="manzana">Manzana</option>
-                <option value="naranja">Naranja</option>
-                <option value="platano">Plátano</option>
+                <option value="Buscador de internet">Buscador de internet</option>
+                <option value="Redes sociales">Redes sociales</option>
+                <option value="Buscador de internet">Buscador de internet</option>
+                <option value="amigos">Amigos</option>
             </select>
             <label for="residencia">Lugar de residencia:</label>
             <select class="form-control" name="residencia" id="residencia" placeholder="residencia" required>
-                <option value="manzana">Manzana</option>
+                <option value="Madrid">Madrid</option>
                 <option value="naranja">Naranja</option>
+                <option value="platano">Plátano</option>
                 <option value="platano">Plátano</option>
             </select>
             <input type="submit" id="botonEnviar" class="btn btn-primary rounded submit p-3 px-5" value="Enviar" />
         </form>
     </div>
 </body>
+
+</html>
