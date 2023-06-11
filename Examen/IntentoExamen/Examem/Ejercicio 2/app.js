@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 
 const matriz = [[0, 0, 0, 0], [0, 0, 0, 0][0, 0, 0, 0]];
 
+const list = []
+
 //Gestiona el enlace cuando entras en http://localhost:3000
 app.get("/", function (request, response) {
 
@@ -29,7 +31,7 @@ app.get("/login", function (request, response) {
 
 app.get("/resultados", function (request, response) {
     //matriz[0][0] = 0;
-    response.render("resultados", { matriz: matriz });
+    response.render("resultados", { resultados: list });
 
 });
 
@@ -43,26 +45,11 @@ app.get("/gracias", function (request, response) {
 //Coge los datos pasados por el formulario del login
 app.post("/login", function (request, response) {
     console.log(request.body);
-    if (request.body.edad == "menor que 20") {
-        matriz[0][0]++;
-    } else if (request.body.edad == "20 a 30") {
-        matriz[0][1]++;
-    } else if (request.body.edad == "30 a 40") {
-        matriz[0][2]++;
-    } else if (request.body.edad == "mayor de 40") {
-        matriz[0][3]++;
-    }
-
-    if (request.body.canal == "Buscador de internet") {
-        matriz[1][1]++;
-    }
-    else if (request.body.edad == "Comunidad de Madrid") {
-        matriz[1][1]++;
-    } else if (request.body.edad == "resto del territorio") {
-        matriz[1][2]++;
-    } else if (request.body.edad == "fuera de España") {
-        matriz[1][3]++;
-    }
+    list.push({
+        edad: request.body.edad,
+        canal: request.body.canal,
+        residencia: request.body.residencia
+    })
     response.redirect("/gracias");
 });
 

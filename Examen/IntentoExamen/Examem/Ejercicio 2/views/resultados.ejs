@@ -9,6 +9,20 @@
     <div class="container">
         <h1>Resultados</h1>
         <p></p>
-        <%=matriz[0][0]%>
+        <table class="table">
+            <tr>
+                <th>Rango de edad</th>
+                <th>Canal</th>
+                <th>Residencia</th>
+            </tr>
+            <% resultados.forEach(function (r) {%>
+            <tr>
+                <td><%= r.edad %></td>
+                <td><%= r.canal %></td>
+                <td><%= r.residencia %></td>
+            </tr>
+            <% }) %>
+        </table>
+
     </div>
 </body>

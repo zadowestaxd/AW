@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        h1 {
+            text-align: center;
+            text-decoration: double;
+            text-shadow: 0 0 2px #f00;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: bold;
+            font-size: 48px;
+            text-decoration: underline;
+        }
+
+        body {
+            background-color: #fbfbf4;
+        }
+
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 48px;
+            padding-top: 16px;
+        }
+
+        .producto {
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            border: solid 1px black;
+            min-width: 200px;
+            transition: box-shadow 0.08s linear;
+            background: white;
+        }
+
+        .producto:hover {
+            box-shadow: 0 2px 24px 2px rgba(0, 0, 0, 0.35);
+        }
+
+        .producto .nombre {
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .producto .imagen {
+            flex-grow: 1;
+            align-items: center;
+            display: flex;
+        }
+
+        .producto .imagen img {
+            max-width: 200px;
+        }
+
+        .producto .precio {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1> <%= descripcion %> </h1>
+        <div class="productos">
+            <% items.forEach(function (item) { %>
+            <div class="producto">
+                <div class="nombre"><%= item.nombre%></div>
+                <div class="imagen">
+                    <img src="/img/<%= item.imagen %>" alt="Imagen">
+                </div>
+                <div class="precio"><%= item.precio %></div>
+            </div>
+            <%  }) %>
+        </div>
+    </div>
+</body>
