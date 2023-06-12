@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cambio-container {
+            padding: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cambio-container">
+        <h1> Cuestionario cliente</h1>
+        <form action="/cuestionario" method="post">
+            <div class="form-group">
+                <label for="edad">Selecciona rango de edad:</label>
+                <select class="form-control" name="edad" id="edad" placeholder="edad" required>
+                    <option value="menor que 20">menor que 20</option>
+                    <option value="20 a 30">20 a 30</option>
+                    <option value="mayor que 30">mayor que 30</option>
+                </select>
+                <label for="canal"> El canal por el que les ha conocido:</label>
+                <select class="form-control" name="canal" id="canal" placeholder="canal" required>
+                    <option value="Buscador de internet">Buscador de internet</option>
+                    <option value="Redes sociales">Redes sociales</option>
+                    <option value="campaña de prensa y tv">campaña de prensa y tv</option>
+                    <option value="amigos">Amigos</option>
+                </select>
+                <label for="residencia">Lugar de residencia:</label>
+                <select class="form-control" name="residencia" id="residencia" placeholder="residencia" required>
+                    <option value="Madrid">Madrid</option>
+                    <option value="Comunidad de Madrid">Comunidad de Madrid</option>
+                    <option value="resto del territorio">resto del territorio</option>
+                    <option value="fuera de España">fuera de España</option>
+                </select>
+            </div>
+            <button class="btn-primary" type="submit">Enviar</button>
+        </form>
+
+    </div>
+</body>
+
+</body>
+
+</html>

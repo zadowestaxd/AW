@@ -12,8 +12,6 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-const matriz = [[0, 0, 0, 0], [0, 0, 0, 0][0, 0, 0, 0]];
-
 const list = []
 
 //Gestiona el enlace cuando entras en http://localhost:3000

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%
+        }
+
+        h1 {
+            text-align: center;
+            text-decoration: double;
+            text-shadow: 0 0 2px #f00;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: bold;
+            font-size: 48px;
+            text-decoration: underline;
+        }
+
+        .productos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 100px;
+            padding-top: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            min-width: 200px;
+            justify-content: center;
+            align-items: center;
+            border: solid 1px black;
+        }
+
+        .imagen {
+            flex-grow: 1;
+            align-items: center;
+            display: flex;
+        }
+
+        .imagen img {
+            max-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><%= descripcion %></h1>
+        <div class="productos">
+            <% items.forEach(function (i){ %>
+            <div class="form-group">
+                <div>
+                    <p><%= i.nombre%></p>
+                </div>
+                <div class="imagen">
+                    <img src="/img/<%= i.imagen %>" alt="Imagen">
+                </div>
+                <div><%= i.precio %></div>
+            </div>
+            <%})%>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
